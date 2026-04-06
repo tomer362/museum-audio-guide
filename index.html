@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Museum Audio Guide</title>
+  <style>
+    :root {
+      --bg: #100c08;
+      --bg2: #1c1410;
+      --card: #241a12;
+      --card2: #2e2018;
+      --gold: #c9a030;
+      --gold2: #e8c050;
+      --text: #f0e8d8;
+      --muted: #9a8878;
+      --red: #8B1A1A;
+      --border: rgba(201,160,48,0.18);
+      --radius: 14px;
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    html, body { height: 100%; background: var(--bg); color: var(--text); font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif; overflow-x: hidden; }
+
+    /* ─── SPLASH ─── */
+    #splash {
+      min-height: 100dvh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 32px 24px calc(32px + var(--safe-bottom));
+      background: radial-gradient(ellipse at 50% 20%, #2a1a0a 0%, var(--bg) 70%);
+      text-align: center;
+    }
+    .splash-icon { font-size: 72px; margin-bottom: 20px; filter: drop-shadow(0 4px 24px rgba(201,160,48,0.4)); }
+    .splash-title { font-size: clamp(28px,6vw,42px); font-weight: 700; letter-spacing: -0.5px; color: var(--gold2); margin-bottom: 10px; }
+    .splash-sub { font-size: 16px; color: var(--muted); margin-bottom: 36px; max-width: 360px; line-height: 1.5; }
+    .splash-format {
+      background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 16px 20px; margin-bottom: 32px; max-width: 420px; width: 100%; text-align: left;
+    }
+    .splash-format h3 { color: var(--gold); font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 10px; }
+    .splash-format code { font-size: 12px; color: var(--muted); font-family: 'Menlo', 'Monaco', monospace; line-height: 1.8; display: block; }
+    .btn-load {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: linear-gradient(135deg, var(--gold), #a07820);
+      color: #1a0f07; font-weight: 700; font-size: 17px;
+      border: none; border-radius: 50px; padding: 16px 36px;
+      cursor: pointer; box-shadow: 0 4px 24px rgba(201,160,48,0.35);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .btn-load:active { transform: scale(0.97); box-shadow: 0 2px 12px rgba(201,160,48,0.2); }
+    #file-input { display: none; }
+    .splash-hint { margin-top: 16px; font-size: 13px; color: var(--muted); }
+
+    /* ─── APP ─── */
+    #app { display: none; flex-direction: column; height: 100dvh; }
+    #app.visible { display: flex; }
+
+    /* HEADER */
+    #app-header {
+      flex-shrink: 0;
+      background: linear-gradient(180deg, var(--bg2) 0%, transparent 100%);
+      padding: 16px 16px 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .museum-name { font-size: clamp(17px,4vw,22px); font-weight: 700; color: var(--gold2); line-height: 1.2; }
+    .museum-meta { font-size: 13px; color: var(--muted); margin-top: 3px; }
+    .header-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .btn-reset { background: none; border: 1px solid var(--border); border-radius: 8px; color: var(--muted); font-size: 12px; padding: 6px 12px; cursor: pointer; flex-shrink: 0; }
+
+    /* SEARCH */
+    #search-bar { padding: 10px 16px 0; flex-shrink: 0; }
+    #search-input {
+      width: 100%; background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+      color: var(--text); font-size: 15px; padding: 10px 14px;
+      outline: none; transition: border-color 0.2s;
+    }
+    #search-input:focus { border-color: var(--gold); }
+    #search-input::placeholder { color: var(--muted); }
+
+    /* FLOOR TABS */
+    #floor-tabs {
+      flex-shrink: 0; display: flex; gap: 8px; overflow-x: auto; padding: 10px 16px;
+      scrollbar-width: none; border-bottom: 1px solid var(--border);
+    }
+    #floor-tabs::-webkit-scrollbar { display: none; }
+    .tab {
+      flex-shrink: 0; padding: 7px 16px; border-radius: 20px; font-size: 13px; font-weight: 600;
+      border: 1px solid var(--border); background: var(--card); color: var(--muted);
+      cursor: pointer; transition: all 0.2s;
+    }
+    .tab.active { background: var(--gold); color: #1a0f07; border-color: var(--gold); }
+
+    /* MAIN SCROLL */
+    #main { flex: 1; overflow-y: auto; padding: 16px 16px 140px; scroll-behavior: smooth; }
+    #main::-webkit-scrollbar { width: 4px; }
+    #main::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+    /* SECTION HEADINGS */
+    .section-heading {
+      display: flex; align-items: center; gap: 10px; margin: 20px 0 10px;
+      font-size: 13px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--gold);
+    }
+    .section-heading::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .section-heading:first-child { margin-top: 0; }
+
+    /* ARTWORK CARDS */
+    .artwork-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+      margin-bottom: 12px; overflow: hidden; transition: border-color 0.2s;
+      display: flex; align-items: stretch; gap: 0;
+    }
+    .artwork-card.playing { border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold), 0 4px 20px rgba(201,160,48,0.15); }
+    .card-color-bar { width: 4px; flex-shrink: 0; border-radius: 0; }
+    .card-body { flex: 1; padding: 12px 12px 12px 14px; min-width: 0; }
+    .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+    .card-info { flex: 1; min-width: 0; }
+    .card-title { font-size: 15px; font-weight: 700; color: var(--text); line-height: 1.3; margin-bottom: 3px; }
+    .card-title .highlight-star { color: var(--gold); margin-right: 4px; }
+    .card-artist { font-size: 13px; color: var(--muted); margin-bottom: 4px; }
+    .card-badges { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; }
+    .badge {
+      font-size: 11px; padding: 2px 8px; border-radius: 10px; font-weight: 600;
+      background: var(--card2); color: var(--muted); border: 1px solid var(--border);
+    }
+    .badge.room { color: var(--gold); border-color: rgba(201,160,48,0.3); }
+    .badge.year { color: #b8d4f0; border-color: rgba(100,160,200,0.3); }
+    .btn-play {
+      flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%;
+      background: var(--card2); border: 1.5px solid var(--border);
+      color: var(--gold); font-size: 18px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.15s; align-self: center;
+    }
+    .btn-play:active { transform: scale(0.92); }
+    .btn-play.playing { background: var(--gold); color: #1a0f07; border-color: var(--gold); }
+
+    /* PLAYER BAR */
+    #player-bar {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background: rgba(24,16,8,0.97);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border-top: 1px solid var(--border);
+      padding: 12px 16px calc(12px + var(--safe-bottom));
+      z-index: 100;
+      transform: translateY(100%); transition: transform 0.3s ease;
+    }
+    #player-bar.visible { transform: translateY(0); }
+    .player-artwork-name { font-size: 13px; font-weight: 700; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 2px; }
+    .player-artist-name { font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+    .player-controls { display: flex; align-items: center; justify-content: center; gap: 20px; }
+    .player-progress { height: 3px; background: var(--card2); border-radius: 2px; margin-bottom: 10px; overflow: hidden; }
+    .player-progress-fill { height: 100%; background: var(--gold); border-radius: 2px; width: 0%; transition: width 0.5s linear; }
+    .btn-ctrl {
+      background: none; border: none; color: var(--muted); font-size: 22px;
+      cursor: pointer; padding: 6px; transition: color 0.15s;
+    }
+    .btn-ctrl:active { color: var(--gold); }
+    .btn-ctrl-main {
+      background: var(--gold); border: none; color: #1a0f07;
+      width: 48px; height: 48px; border-radius: 50%; font-size: 20px;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 2px 12px rgba(201,160,48,0.4); transition: transform 0.15s;
+    }
+    .btn-ctrl-main:active { transform: scale(0.93); }
+    .btn-autoplay { font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 5px; cursor: pointer; padding: 4px 0; }
+    .btn-autoplay input[type=checkbox] { accent-color: var(--gold); }
+
+    /* EMPTY / ERROR */
+    .empty-state { text-align: center; padding: 60px 24px; color: var(--muted); font-size: 15px; }
+    .empty-state .icon { font-size: 48px; margin-bottom: 12px; }
+    .toast {
+      position: fixed; top: 20px; left: 50%; transform: translateX(-50%) translateY(-80px);
+      background: var(--red); color: #fff; padding: 10px 20px; border-radius: 10px;
+      font-size: 14px; font-weight: 600; z-index: 999; transition: transform 0.3s ease;
+      max-width: calc(100vw - 32px); text-align: center;
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════ SPLASH ═══════════════════════════════════ -->
+<div id="splash">
+  <div class="splash-icon">🎨</div>
+  <div class="splash-title">Museum Audio Guide</div>
+  <div class="splash-sub">Load a museum guide JSON file to begin your tour. Works with any compatible guide.</div>
+
+  <div class="splash-format">
+    <h3>📄 Expected JSON Format</h3>
+    <code>
+{<br>
+&nbsp;&nbsp;"format": "museum-audio-guide/v1",<br>
+&nbsp;&nbsp;"meta": { "name": "…", "city": "…" },<br>
+&nbsp;&nbsp;"floors": [ { "id": 0, "name": "…" } ],<br>
+&nbsp;&nbsp;"artworks": [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{ "id":"…", "title":"…", "artist":"…",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"year":"…", "floor":1, "room":"…",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"audioDescription":"…" }<br>
+&nbsp;&nbsp;]<br>
+}
+    </code>
+  </div>
+
+  <button class="btn-load" onclick="document.getElementById('file-input').click()">
+    📂 Load Museum Guide
+  </button>
+  <input type="file" id="file-input" accept=".json,application/json" onchange="loadFile(event)">
+  <div class="splash-hint">Try loading <strong>prado-madrid.json</strong></div>
+</div>
+
+<!-- ═══════════════════════════════════ APP ════════════════════════════════════── -->
+<div id="app">
+  <div id="app-header">
+    <div class="header-row">
+      <div>
+        <div class="museum-name" id="museum-name">Museum</div>
+        <div class="museum-meta" id="museum-meta"></div>
+      </div>
+      <button class="btn-reset" onclick="resetApp()">✕ Close</button>
+    </div>
+  </div>
+
+  <div id="search-bar">
+    <input type="search" id="search-input" placeholder="🔍  Search artworks, artists…" oninput="renderArtworks()" autocomplete="off" autocorrect="off" spellcheck="false">
+  </div>
+
+  <div id="floor-tabs"></div>
+
+  <div id="main"></div>
+</div>
+
+<!-- PLAYER BAR -->
+<div id="player-bar">
+  <div class="player-artwork-name" id="player-title">—</div>
+  <div class="player-artist-name" id="player-artist">—</div>
+  <div class="player-progress"><div class="player-progress-fill" id="progress-fill"></div></div>
+  <div class="player-controls">
+    <button class="btn-ctrl" onclick="playPrev()" title="Previous">⏮</button>
+    <button class="btn-ctrl-main" id="btn-main-play" onclick="togglePlay()">▶</button>
+    <button class="btn-ctrl" onclick="playNext()" title="Next">⏭</button>
+    <label class="btn-autoplay"><input type="checkbox" id="autoplay-cb"> Auto-advance</label>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ═══════════════════════════════════════════════════════════
+// MUSEUM AUDIO GUIDE — Generic Player v1.0
+// Format: museum-audio-guide/v1
+// ═══════════════════════════════════════════════════════════
+
+let museumData = null;
+let filteredArtworks = [];
+let currentIndex = -1;
+let isPlaying = false;
+let activeFloor = 'all';
+let resumeTimer = null;
+let progressTimer = null;
+let utteranceStart = 0;
+let utteranceDuration = 0;
+
+const synth = window.speechSynthesis;
+
+// ── ARTIST COLOURS (used as card accent bars) ──────────────
+const ARTIST_COLORS = {
+  'Diego Velázquez':          '#8B4513',
+  'Francisco de Goya':        '#2F4F4F',
+  'El Greco':                 '#6A0DAD',
+  'Titian':                   '#8B0000',
+  'Peter Paul Rubens':        '#D2691E',
+  'Hieronymus Bosch':         '#228B22',
+  'Albrecht Dürer':           '#4169E1',
+  'Raphael':                  '#DAA520',
+  'Bartolomé Esteban Murillo':'#C2185B',
+  'José de Ribera':           '#607D8B',
+  'Francisco de Zurbarán':    '#795548',
+  'Rembrandt van Rijn':       '#FF8F00',
+  'Pieter Bruegel the Elder': '#33691E',
+  'Hans Memling':             '#0288D1',
+  'Fra Angelico':             '#7986CB',
+  'Rogier van der Weyden':    '#5D4037',
+};
+function artistColor(name) {
+  return ARTIST_COLORS[name] || '#888';
+}
+
+// ── FILE LOADING ───────────────────────────────────────────
+function loadFile(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const data = JSON.parse(e.target.result);
+      validateAndLoad(data);
+    } catch(err) {
+      showToast('❌ Invalid JSON file: ' + err.message);
+    }
+  };
+  reader.readAsText(file);
+}
+
+function validateAndLoad(data) {
+  if (!data.meta || !data.artworks || !Array.isArray(data.artworks)) {
+    showToast('❌ Invalid format. Missing meta or artworks array.');
+    return;
+  }
+  museumData = data;
+  filteredArtworks = [...museumData.artworks];
+  initApp();
+}
+
+function resetApp() {
+  stopSpeech();
+  museumData = null;
+  currentIndex = -1;
+  isPlaying = false;
+  activeFloor = 'all';
+  document.getElementById('app').classList.remove('visible');
+  document.getElementById('splash').style.display = '';
+  document.getElementById('player-bar').classList.remove('visible');
+  document.getElementById('file-input').value = '';
+}
+
+// ── APP INIT ───────────────────────────────────────────────
+function initApp() {
+  const meta = museumData.meta;
+  document.getElementById('museum-name').textContent = meta.name || 'Museum';
+  document.getElementById('museum-meta').textContent =
+    [meta.city, meta.established ? 'Est. ' + meta.established : null]
+    .filter(Boolean).join(' · ');
+  document.title = (meta.name || 'Museum') + ' · Audio Guide';
+
+  buildFloorTabs();
+  renderArtworks();
+
+  document.getElementById('splash').style.display = 'none';
+  document.getElementById('app').classList.add('visible');
+}
+
+// ── FLOOR TABS ─────────────────────────────────────────────
+function buildFloorTabs() {
+  const tabs = document.getElementById('floor-tabs');
+  tabs.innerHTML = '';
+
+  const allTab = makeTab('all', '⭐ All', activeFloor === 'all');
+  const hlTab  = makeTab('highlights', '✨ Highlights', activeFloor === 'highlights');
+  tabs.appendChild(allTab);
+  tabs.appendChild(hlTab);
+
+  const floors = museumData.floors || [];
+  floors.forEach(f => {
+    tabs.appendChild(makeTab('floor_' + f.id, 'Floor ' + f.id + ' — ' + f.name, activeFloor === 'floor_' + f.id));
+  });
+
+  // derive floors from artworks if no floors array
+  if (!floors.length) {
+    const floorNums = [...new Set(museumData.artworks.map(a => a.floor).filter(f => f != null))].sort();
+    floorNums.forEach(f => {
+      tabs.appendChild(makeTab('floor_' + f, 'Floor ' + f, activeFloor === 'floor_' + f));
+    });
+  }
+}
+
+function makeTab(value, label, active) {
+  const btn = document.createElement('button');
+  btn.className = 'tab' + (active ? ' active' : '');
+  btn.textContent = label;
+  btn.onclick = () => { activeFloor = value; buildFloorTabs(); renderArtworks(); };
+  return btn;
+}
+
+// ── RENDER ARTWORKS ────────────────────────────────────────
+function renderArtworks() {
+  const query = (document.getElementById('search-input').value || '').toLowerCase().trim();
+  let artworks = museumData.artworks;
+
+  // filter by floor/highlights
+  if (activeFloor === 'highlights') {
+    artworks = artworks.filter(a => a.highlight);
+  } else if (activeFloor.startsWith('floor_')) {
+    const floorId = parseInt(activeFloor.split('_')[1]);
+    artworks = artworks.filter(a => a.floor === floorId);
+  }
+
+  // filter by search
+  if (query) {
+    artworks = artworks.filter(a =>
+      (a.title||'').toLowerCase().includes(query) ||
+      (a.artist||'').toLowerCase().includes(query) ||
+      (a.room||'').toLowerCase().includes(query) ||
+      (a.wing||'').toLowerCase().includes(query) ||
+      (a.tags||[]).some(t => t.toLowerCase().includes(query))
+    );
+  }
+
+  filteredArtworks = artworks;
+  const main = document.getElementById('main');
+
+  if (!artworks.length) {
+    main.innerHTML = '<div class="empty-state"><div class="icon">🔍</div>No artworks found.</div>';
+    return;
+  }
+
+  // Group by wing or floor
+  const grouped = {};
+  artworks.forEach(a => {
+    const key = a.wing || ('Floor ' + (a.floor != null ? a.floor : '?'));
+    if (!grouped[key]) grouped[key] = [];
+    grouped[key].push(a);
+  });
+
+  let html = '';
+  for (const [section, items] of Object.entries(grouped)) {
+    html += `<div class="section-heading">${escHtml(section)}</div>`;
+    items.forEach(a => { html += cardHtml(a); });
+  }
+  main.innerHTML = html;
+}
+
+function cardHtml(a) {
+  const color = artistColor(a.artist);
+  const playing = currentIndex === filteredArtworks.indexOf(a) && isPlaying;
+  const globalIdx = museumData.artworks.indexOf(a);
+  return `
+  <div class="artwork-card${playing ? ' playing' : ''}" id="card-${a.id}">
+    <div class="card-color-bar" style="background:${color}"></div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-info">
+          <div class="card-title">${a.highlight ? '<span class="highlight-star">★</span>' : ''}${escHtml(a.title)}</div>
+          <div class="card-artist">${escHtml(a.artist || '')}${a.medium ? ' · ' + escHtml(a.medium) : ''}</div>
+          <div class="card-badges">
+            ${a.room ? `<span class="badge room">Room ${escHtml(a.room)}</span>` : ''}
+            ${a.year ? `<span class="badge year">${escHtml(a.year)}</span>` : ''}
+            ${a.type ? `<span class="badge">${typeIcon(a.type)} ${escHtml(a.type)}</span>` : ''}
+          </div>
+        </div>
+        <button class="btn-play${playing ? ' playing' : ''}" onclick="playArtwork('${a.id}')" aria-label="Play audio for ${escAttr(a.title)}">
+          ${playing ? '⏸' : '▶'}
+        </button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function typeIcon(t) {
+  return t === 'painting' ? '🖼️' : t === 'sculpture' ? '🗿' : t === 'drawing' ? '✏️' : '🏺';
+}
+
+// ── SPEECH ─────────────────────────────────────────────────
+function playArtwork(id) {
+  const artwork = museumData.artworks.find(a => a.id === id);
+  if (!artwork) return;
+
+  const idx = filteredArtworks.findIndex(a => a.id === id);
+  if (currentIndex === idx && isPlaying) {
+    pauseSpeech();
+    return;
+  }
+  if (currentIndex === idx && !isPlaying && synth.paused) {
+    synth.resume();
+    isPlaying = true;
+    updatePlayerUI();
+    startProgressTimer();
+    return;
+  }
+
+  currentIndex = idx;
+  startSpeaking(artwork);
+}
+
+function startSpeaking(artwork) {
+  stopSpeech();
+  const text = buildSpeechText(artwork);
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang = 'en-US';
+  utter.rate = 0.88;
+  utter.pitch = 1.0;
+  utter.volume = 1.0;
+
+  // Pick a good voice if available
+  const voices = synth.getVoices();
+  const preferred = voices.find(v =>
+    (v.lang === 'en-US' || v.lang === 'en_US') &&
+    (v.name.includes('Samantha') || v.name.includes('Karen') || v.name.includes('Moira') || v.name.includes('Google') || !v.localService === false)
+  ) || voices.find(v => v.lang.startsWith('en'));
+  if (preferred) utter.voice = preferred;
+
+  utter.onstart = () => {
+    isPlaying = true;
+    utteranceStart = Date.now();
+    utteranceDuration = estimateDuration(text, utter.rate);
+    startProgressTimer();
+    updatePlayerUI();
+    updateAllCards();
+  };
+  utter.onend = () => {
+    isPlaying = false;
+    clearInterval(resumeTimer);
+    clearInterval(progressTimer);
+    document.getElementById('progress-fill').style.width = '100%';
+    updatePlayerUI();
+    updateAllCards();
+    if (document.getElementById('autoplay-cb').checked) {
+      setTimeout(playNext, 800);
+    }
+  };
+  utter.onerror = () => {
+    isPlaying = false;
+    clearInterval(resumeTimer);
+    clearInterval(progressTimer);
+    updatePlayerUI();
+  };
+
+  // iOS fix: speechSynthesis silently pauses after ~15s — periodically pause+resume
+  clearInterval(resumeTimer);
+  resumeTimer = setInterval(() => {
+    if (synth.speaking && !synth.paused) {
+      synth.pause();
+      synth.resume();
+    }
+  }, 10000);
+
+  synth.speak(utter);
+  isPlaying = true;
+
+  // show player bar
+  document.getElementById('player-bar').classList.add('visible');
+  document.getElementById('player-title').textContent = artwork.title;
+  document.getElementById('player-artist').textContent = artwork.artist + (artwork.year ? ' · ' + artwork.year : '');
+  document.getElementById('progress-fill').style.width = '0%';
+  updatePlayerUI();
+  updateAllCards();
+}
+
+function buildSpeechText(a) {
+  const parts = [
+    a.audioDescription || a.description || '',
+  ];
+  // Prepend title/artist intro if the description doesn't already start with it
+  const desc = parts[0].trim();
+  const intro = `${a.title}, by ${a.artist}.  `;
+  return (desc.toLowerCase().startsWith(a.title.toLowerCase()) ? '' : intro) + desc;
+}
+
+function estimateDuration(text, rate) {
+  // ~150 words per minute at rate 1.0; adjust for rate
+  const words = text.split(/\s+/).length;
+  return (words / (150 * rate)) * 60 * 1000;
+}
+
+function startProgressTimer() {
+  clearInterval(progressTimer);
+  if (!utteranceDuration) return;
+  progressTimer = setInterval(() => {
+    const elapsed = Date.now() - utteranceStart;
+    const pct = Math.min(100, (elapsed / utteranceDuration) * 100);
+    document.getElementById('progress-fill').style.width = pct + '%';
+    if (pct >= 100) clearInterval(progressTimer);
+  }, 300);
+}
+
+function stopSpeech() {
+  synth.cancel();
+  isPlaying = false;
+  clearInterval(resumeTimer);
+  clearInterval(progressTimer);
+}
+
+function pauseSpeech() {
+  synth.pause();
+  isPlaying = false;
+  clearInterval(progressTimer);
+  updatePlayerUI();
+  updateAllCards();
+}
+
+function togglePlay() {
+  if (synth.paused) {
+    synth.resume();
+    isPlaying = true;
+    startProgressTimer();
+    updatePlayerUI();
+    updateAllCards();
+  } else if (synth.speaking) {
+    pauseSpeech();
+  } else if (currentIndex >= 0 && currentIndex < filteredArtworks.length) {
+    startSpeaking(filteredArtworks[currentIndex]);
+  }
+}
+
+function playNext() {
+  if (!filteredArtworks.length) return;
+  const next = (currentIndex + 1) % filteredArtworks.length;
+  currentIndex = next;
+  startSpeaking(filteredArtworks[next]);
+}
+
+function playPrev() {
+  if (!filteredArtworks.length) return;
+  const prev = (currentIndex - 1 + filteredArtworks.length) % filteredArtworks.length;
+  currentIndex = prev;
+  startSpeaking(filteredArtworks[prev]);
+}
+
+// ── UI HELPERS ─────────────────────────────────────────────
+function updatePlayerUI() {
+  const btn = document.getElementById('btn-main-play');
+  btn.textContent = isPlaying ? '⏸' : '▶';
+}
+
+function updateAllCards() {
+  // re-render to update play button states
+  renderArtworks();
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3500);
+}
+
+function escHtml(s) {
+  return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function escAttr(s) {
+  return String(s || '').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+// Load voices asap (needed on iOS/Chrome)
+if (synth.onvoiceschanged !== undefined) {
+  synth.onvoiceschanged = () => synth.getVoices();
+}
+synth.getVoices();
+</script>
+</body>
+</html>
