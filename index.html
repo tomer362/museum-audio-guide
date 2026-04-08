@@ -115,8 +115,9 @@
     .card-color-bar { width: 4px; flex-shrink: 0; border-radius: 0; }
     .card-body { flex: 1; padding: 12px 12px 12px 14px; min-width: 0; }
     .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
-    .card-info { flex: 1; min-width: 0; }
+    .card-info { flex: 1; min-width: 0; cursor: pointer; }
     .card-title { font-size: 15px; font-weight: 700; color: var(--text); line-height: 1.3; margin-bottom: 3px; }
+    .card-title:hover { color: var(--gold2); }
     .card-title .highlight-star { color: var(--gold); margin-right: 4px; }
     .card-artist { font-size: 13px; color: var(--muted); margin-bottom: 4px; }
     .card-badges { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; }
@@ -170,14 +171,15 @@
       box-shadow: 0 2px 12px rgba(201,160,48,0.4); transition: transform 0.15s;
     }
     .btn-ctrl-main:active { transform: scale(0.93); }
-    /* SPEED BUTTON */
-    .btn-speed {
+    /* SPEED PICKER */
+    .speed-select {
       background: var(--card2); border: 1.5px solid var(--border); border-radius: 20px;
       color: var(--gold); font-size: 12px; font-weight: 700; padding: 5px 11px;
       cursor: pointer; transition: border-color 0.15s, background 0.15s; letter-spacing: 0.3px;
+      appearance: none; -webkit-appearance: none; outline: none;
     }
-    .btn-speed:hover { border-color: var(--gold); background: rgba(201,160,48,0.08); }
-    .btn-speed:active { transform: scale(0.94); }
+    .speed-select:hover { border-color: var(--gold); background: rgba(201,160,48,0.08); }
+    .speed-select option { background: var(--card); color: var(--text); }
 
     /* TOGGLE SWITCH (auto-advance) */
     .toggle-label {
@@ -259,7 +261,51 @@
     .btn-ai:hover { border-color: var(--gold); background: var(--card2); }
     .btn-ai:active { transform: scale(0.97); }
 
-    /* EMPTY / ERROR */
+    /* MUSEUM OVERVIEW */
+    .museum-overview {
+      font-size: 13px; color: var(--muted); margin-top: 6px; line-height: 1.5;
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+      overflow: hidden; cursor: pointer; transition: color 0.2s;
+    }
+    .museum-overview.expanded { display: block; }
+    .museum-overview:hover { color: var(--text); }
+
+    /* ARTWORK DETAIL OVERLAY */
+    .detail-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.88); z-index: 200;
+      display: flex; align-items: flex-end; justify-content: center;
+      padding: 0; animation: fadeInOverlay 0.2s ease;
+    }
+    @keyframes fadeInOverlay { from { opacity: 0; } to { opacity: 1; } }
+    .detail-overlay.hidden { display: none; }
+    .detail-sheet {
+      background: var(--card); border-radius: 20px 20px 0 0;
+      width: 100%; max-width: 600px; max-height: 92dvh;
+      overflow-y: auto; box-shadow: 0 -4px 48px rgba(0,0,0,0.6);
+      animation: slideUp 0.25s ease;
+    }
+    @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+    .detail-sheet-img {
+      width: 100%; max-height: 280px; object-fit: cover;
+      border-radius: 20px 20px 0 0; display: block;
+    }
+    .detail-sheet-img-placeholder {
+      width: 100%; height: 160px; background: var(--card2);
+      border-radius: 20px 20px 0 0; display: flex; align-items: center; justify-content: center;
+      font-size: 56px;
+    }
+    .detail-sheet-body { padding: 20px 20px calc(20px + var(--safe-bottom)); }
+    .detail-sheet-title { font-size: 20px; font-weight: 700; color: var(--gold2); margin-bottom: 4px; line-height: 1.3; }
+    .detail-sheet-artist { font-size: 14px; color: var(--muted); margin-bottom: 14px; }
+    .detail-sheet-desc { font-size: 15px; color: var(--text); line-height: 1.7; }
+    .detail-sheet-close {
+      position: absolute; top: 14px; right: 16px;
+      background: rgba(0,0,0,0.55); border: none; color: #fff;
+      font-size: 18px; width: 36px; height: 36px; border-radius: 50%;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      backdrop-filter: blur(4px); z-index: 10;
+    }
+    .detail-sheet-wrapper { position: relative; }
     .empty-state { text-align: center; padding: 60px 24px; color: var(--muted); font-size: 15px; }
     .empty-state .icon { font-size: 48px; margin-bottom: 12px; }
     .toast {
@@ -310,6 +356,7 @@
       <div>
         <div class="museum-name" id="museum-name">Museum</div>
         <div class="museum-meta" id="museum-meta"></div>
+        <div class="museum-overview" id="museum-overview" tabindex="0" onclick="toggleOverviewExpand(this)" onkeydown="if(event.key==='Enter'||event.key===' '){toggleOverviewExpand(this)}" style="display:none"></div>
       </div>
       <button class="btn-reset" onclick="resetApp()">✕ Close</button>
     </div>
@@ -333,7 +380,14 @@
     <button class="btn-ctrl" onclick="playPrev()" title="Previous">⏮</button>
     <button class="btn-ctrl-main" id="btn-main-play" onclick="togglePlay()">▶</button>
     <button class="btn-ctrl" onclick="playNext()" title="Next">⏭</button>
-    <button class="btn-speed" id="btn-speed" onclick="cycleSpeed()" title="Playback speed">1×</button>
+    <select id="speed-select" class="speed-select" onchange="setSpeed(this.value)" title="Playback speed">
+      <option value="0.5">0.5×</option>
+      <option value="0.75">0.75×</option>
+      <option value="1" selected>1×</option>
+      <option value="1.25">1.25×</option>
+      <option value="1.5">1.5×</option>
+      <option value="2">2×</option>
+    </select>
     <label class="toggle-label" title="Auto-advance to next artwork">
       <input type="checkbox" id="autoplay-cb" class="toggle-input">
       <span class="toggle-slider"></span>
@@ -363,6 +417,21 @@
   </div>
 </div>
 
+<!-- ARTWORK DETAIL OVERLAY -->
+<div id="detail-overlay" class="detail-overlay hidden" onclick="closeDetailOverlay(event)">
+  <div class="detail-sheet-wrapper">
+    <div class="detail-sheet" id="detail-sheet">
+      <button class="detail-sheet-close" onclick="closeDetailOverlay()" aria-label="Close">✕</button>
+      <div id="detail-img-area"></div>
+      <div class="detail-sheet-body">
+        <div class="detail-sheet-title" id="detail-title"></div>
+        <div class="detail-sheet-artist" id="detail-artist"></div>
+        <div class="detail-sheet-desc" id="detail-desc"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <script>
@@ -382,7 +451,6 @@ let progressTimer = null;
 let utteranceStart = 0;
 let utteranceDuration = 0;
 let playbackRate = 1.0;
-const SPEED_STEPS = [0.75, 1.0, 1.25, 1.5];
 
 const synth = window.speechSynthesis;
 
@@ -442,6 +510,8 @@ function resetApp() {
   currentArtworkId = null;
   isPlaying = false;
   activeFloor = 'all';
+  playbackRate = 1.0;
+  document.getElementById('speed-select').value = '1';
   document.getElementById('app').classList.remove('visible');
   document.getElementById('splash').style.display = '';
   document.getElementById('player-bar').classList.remove('visible');
@@ -456,6 +526,14 @@ function initApp() {
     [meta.city, meta.established ? 'Est. ' + meta.established : null]
     .filter(Boolean).join(' · ');
   document.title = (meta.name || 'Museum') + ' · Audio Guide';
+
+  const overviewEl = document.getElementById('museum-overview');
+  if (meta.overview) {
+    overviewEl.textContent = meta.overview;
+    overviewEl.style.display = '';
+  } else {
+    overviewEl.style.display = 'none';
+  }
 
   buildFloorTabs();
   renderArtworks();
@@ -555,7 +633,7 @@ function cardHtml(a) {
     <div class="card-color-bar" style="background:${color}"></div>
     <div class="card-body">
       <div class="card-top">
-        <div class="card-info">
+        <div class="card-info" onclick="openDetailOverlay('${escAttr(a.id)}')" onkeydown="if(event.key==='Enter'||event.key===' '){openDetailOverlay('${escAttr(a.id)}')}" role="button" tabindex="0" aria-label="Details for ${escAttr(a.title)}">
           <div class="card-title">${a.highlight ? '<span class="highlight-star">★</span>' : ''}${escHtml(a.title)}</div>
           <div class="card-artist">${escHtml(a.artist || '')}${a.medium ? ' · ' + escHtml(a.medium) : ''}</div>
           <div class="card-badges">
@@ -789,10 +867,8 @@ function getBestVoice(voices) {
 }
 
 // ── SPEED CONTROL ──────────────────────────────────────────
-function cycleSpeed() {
-  const idx = SPEED_STEPS.indexOf(playbackRate);
-  playbackRate = SPEED_STEPS[(idx + 1) % SPEED_STEPS.length];
-  document.getElementById('btn-speed').textContent = playbackRate + '×';
+function setSpeed(value) {
+  playbackRate = parseFloat(value);
   // Restart from current position at the new speed
   if ((synth.speaking || synth.paused) && currentArtworkId && museumData) {
     const artwork = museumData.artworks.find(a => a.id === currentArtworkId);
@@ -803,6 +879,54 @@ function cycleSpeed() {
     }
   }
 }
+
+// ── MUSEUM OVERVIEW EXPAND ─────────────────────────────────
+function toggleOverviewExpand(el) {
+  el.classList.toggle('expanded');
+}
+
+// ── ARTWORK DETAIL OVERLAY ────────────────────────────────
+function openDetailOverlay(id) {
+  if (!museumData) return;
+  const artwork = museumData.artworks.find(a => a.id === id);
+  if (!artwork) return;
+
+  const imgArea = document.getElementById('detail-img-area');
+  if (artwork.imageUrl) {
+    const img = document.createElement('img');
+    img.className = 'detail-sheet-img';
+    img.src = artwork.imageUrl;
+    img.alt = artwork.title;
+    img.onerror = () => {
+      imgArea.innerHTML = `<div class="detail-sheet-img-placeholder">${typeIcon(artwork.type || 'other')}</div>`;
+    };
+    imgArea.innerHTML = '';
+    imgArea.appendChild(img);
+  } else {
+    imgArea.innerHTML = `<div class="detail-sheet-img-placeholder">${typeIcon(artwork.type || 'other')}</div>`;
+  }
+
+  document.getElementById('detail-title').innerHTML = (artwork.highlight ? '<span style="color:var(--gold);margin-right:5px">★</span>' : '') + escHtml(artwork.title);
+  document.getElementById('detail-artist').textContent = [artwork.artist, artwork.year, artwork.medium].filter(Boolean).join(' · ');
+  document.getElementById('detail-desc').textContent = artwork.audioDescription || artwork.description || '';
+
+  document.getElementById('detail-overlay').classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeDetailOverlay(event) {
+  // Close only if clicking the backdrop (not the sheet itself), or via the close button
+  if (event && event.target !== document.getElementById('detail-overlay') && !event.target.classList.contains('detail-sheet-close')) return;
+  document.getElementById('detail-overlay').classList.add('hidden');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && !document.getElementById('detail-overlay').classList.contains('hidden')) {
+    document.getElementById('detail-overlay').classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+});
 
 // ── LLM PROMPT MODAL ───────────────────────────────────────
 function openLlmModal() {
@@ -842,7 +966,8 @@ Please generate a complete, valid JSON file for "${museumName}" following this E
     "name": "${museumName}",
     "city": "<City, Country>",
     "established": "<Year>",
-    "description": "<One-sentence description>"
+    "description": "<One-sentence description>",
+    "overview": "<3–4 sentence introduction covering the museum's founding, history, purpose, architectural highlights, and cultural significance. Written in an engaging, informative tone suitable for visitors.>"
   },
   "floors": [
     { "id": 1, "name": "<Floor name>" }
@@ -860,7 +985,7 @@ Please generate a complete, valid JSON file for "${museumName}" following this E
       "type": "<painting | sculpture | drawing | other>",
       "highlight": true,
       "tags": ["<tag1>", "<tag2>"],
-      "imageUrl": "<valid image URL from Wikimedia Commons or official museum site, or null>",
+      "imageUrl": "<REQUIRED: direct image URL of the artwork from Wikimedia Commons (https://upload.wikimedia.org/…) or the museum's official site. This image will be shown to the visitor. Use null ONLY if truly no image exists anywhere.>",
       "audioDescription": "<Engaging 2–3 paragraph audio description (~150–200 words). Include visual details, historical context, artistic significance, and an interesting story or anecdote.>"
     }
   ]
@@ -875,7 +1000,8 @@ MANDATORY REQUIREMENTS:
 - All "id" values must be unique and use kebab-case.
 - Use only accurate, verified historical information.
 - "type" must be one of: painting, sculpture, drawing, other.
-- For "imageUrl": provide a direct image URL from Wikimedia Commons (https://upload.wikimedia.org/…) or the museum's official site. Use null only if truly no image is available.
+- For "imageUrl": provide a direct image URL from Wikimedia Commons (https://upload.wikimedia.org/…) or the museum's official site. This is the primary image shown to visitors when they tap on an artwork — it must be the most iconic/recognisable image of that specific work. Use null only if truly no image is available anywhere.
+- The "overview" in "meta" must be a compelling 3–4 sentence introduction to the museum: when it was founded, by whom, its mission and cultural role, and what makes it unique or important.
 - Output ONLY the raw JSON — no markdown, no explanation, no commentary.
 
 This is a complete museum audio guide — thoroughness is everything.`;

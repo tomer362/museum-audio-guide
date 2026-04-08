@@ -17,4 +17,4 @@ export const ARTIST_COLORS = {
   'Rogier van der Weyden':    '#5D4037',
 };
 
-export const SPEED_STEPS = [0.75, 1.0, 1.25, 1.5];
+export const SPEED_OPTIONS = [0.5, 0.75, 1.0, 1.25, 1.5, 2.0];

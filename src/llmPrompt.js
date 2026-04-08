@@ -11,7 +11,8 @@ Please generate a complete, valid JSON file for "${museumName}" following this E
     "name": "${museumName}",
     "city": "<City, Country>",
     "established": "<Year>",
-    "description": "<One-sentence description>"
+    "description": "<One-sentence description>",
+    "overview": "<3–4 sentence introduction covering the museum's founding, history, purpose, architectural highlights, and cultural significance. Written in an engaging, informative tone suitable for visitors.>"
   },
   "floors": [
     { "id": 1, "name": "<Floor name>" }
@@ -29,7 +30,7 @@ Please generate a complete, valid JSON file for "${museumName}" following this E
       "type": "<painting | sculpture | drawing | other>",
       "highlight": true,
       "tags": ["<tag1>", "<tag2>"],
-      "imageUrl": "<valid image URL from Wikimedia Commons or official museum site, or null>",
+      "imageUrl": "<REQUIRED: direct image URL of the artwork from Wikimedia Commons (https://upload.wikimedia.org/…) or the museum's official site. This image will be shown to the visitor. Use null ONLY if truly no image exists anywhere.>",
       "audioDescription": "<Engaging 2–3 paragraph audio description (~150–200 words). Include visual details, historical context, artistic significance, and an interesting story or anecdote.>"
     }
   ]
@@ -44,7 +45,8 @@ MANDATORY REQUIREMENTS:
 - All "id" values must be unique and use kebab-case.
 - Use only accurate, verified historical information.
 - "type" must be one of: painting, sculpture, drawing, other.
-- For "imageUrl": provide a direct image URL from Wikimedia Commons (https://upload.wikimedia.org/…) or the museum's official site. Use null only if truly no image is available.
+- For "imageUrl": provide a direct image URL from Wikimedia Commons (https://upload.wikimedia.org/…) or the museum's official site. This is the primary image shown to visitors when they tap on an artwork — it must be the most iconic/recognisable image of that specific work. Use null only if truly no image is available anywhere.
+- The "overview" in "meta" must be a compelling 3–4 sentence introduction to the museum: when it was founded, by whom, its mission and cultural role, and what makes it unique or important.
 - Output ONLY the raw JSON — no markdown, no explanation, no commentary.
 
 This is a complete museum audio guide — thoroughness is everything.`;
