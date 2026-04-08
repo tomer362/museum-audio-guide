@@ -150,8 +150,14 @@
     .player-artwork-name { font-size: 13px; font-weight: 700; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 2px; }
     .player-artist-name { font-size: 11px; color: var(--muted); margin-bottom: 10px; }
     .player-controls { display: flex; align-items: center; justify-content: center; gap: 20px; }
-    .player-progress { height: 3px; background: var(--card2); border-radius: 2px; margin-bottom: 10px; overflow: hidden; }
+    .player-progress {
+      height: 4px; background: var(--card2); border-radius: 2px; margin-bottom: 10px;
+      cursor: pointer; position: relative; touch-action: none;
+      transition: height 0.15s;
+    }
+    .player-progress:hover { height: 7px; }
     .player-progress-fill { height: 100%; background: var(--gold); border-radius: 2px; width: 0%; transition: width 0.5s linear; }
+    .player-progress.seeking .player-progress-fill { transition: none; }
     .btn-ctrl {
       background: none; border: none; color: var(--muted); font-size: 22px;
       cursor: pointer; padding: 6px; transition: color 0.15s;
@@ -322,7 +328,7 @@
 <div id="player-bar">
   <div class="player-artwork-name" id="player-title">—</div>
   <div class="player-artist-name" id="player-artist">—</div>
-  <div class="player-progress"><div class="player-progress-fill" id="progress-fill"></div></div>
+  <div class="player-progress" id="player-progress"><div class="player-progress-fill" id="progress-fill"></div></div>
   <div class="player-controls">
     <button class="btn-ctrl" onclick="playPrev()" title="Previous">⏮</button>
     <button class="btn-ctrl-main" id="btn-main-play" onclick="togglePlay()">▶</button>
@@ -368,6 +374,7 @@
 let museumData = null;
 let filteredArtworks = [];
 let currentIndex = -1;
+let currentArtworkId = null;
 let isPlaying = false;
 let activeFloor = 'all';
 let resumeTimer = null;
@@ -432,6 +439,7 @@ function resetApp() {
   stopSpeech();
   museumData = null;
   currentIndex = -1;
+  currentArtworkId = null;
   isPlaying = false;
   activeFloor = 'all';
   document.getElementById('app').classList.remove('visible');
@@ -513,6 +521,9 @@ function renderArtworks() {
   }
 
   filteredArtworks = artworks;
+  // Keep currentIndex in sync with the artwork that is currently playing
+  currentIndex = currentArtworkId ? filteredArtworks.findIndex(a => a.id === currentArtworkId) : -1;
+
   const main = document.getElementById('main');
 
   if (!artworks.length) {
@@ -538,8 +549,7 @@ function renderArtworks() {
 
 function cardHtml(a) {
   const color = artistColor(a.artist);
-  const playing = currentIndex === filteredArtworks.indexOf(a) && isPlaying;
-  const globalIdx = museumData.artworks.indexOf(a);
+  const playing = a.id === currentArtworkId && isPlaying;
   return `
   <div class="artwork-card${playing ? ' playing' : ''}" id="card-${a.id}">
     <div class="card-color-bar" style="background:${color}"></div>
@@ -572,11 +582,11 @@ function playArtwork(id) {
   if (!artwork) return;
 
   const idx = filteredArtworks.findIndex(a => a.id === id);
-  if (currentIndex === idx && isPlaying) {
+  if (currentArtworkId === id && isPlaying) {
     pauseSpeech();
     return;
   }
-  if (currentIndex === idx && !isPlaying && synth.paused) {
+  if (currentArtworkId === id && !isPlaying && synth.paused) {
     synth.resume();
     isPlaying = true;
     updatePlayerUI();
@@ -588,9 +598,19 @@ function playArtwork(id) {
   startSpeaking(artwork);
 }
 
-function startSpeaking(artwork) {
+function startSpeaking(artwork, startFraction) {
+  startFraction = startFraction || 0;
+  currentArtworkId = artwork.id;
   stopSpeech();
-  const text = buildSpeechText(artwork);
+
+  const fullText = buildSpeechText(artwork);
+  const fullDuration = estimateDuration(fullText, playbackRate);
+
+  // Start from a specific word position when seeking or changing speed mid-play
+  const words = fullText.split(/\s+/);
+  const startWord = Math.floor(startFraction * words.length);
+  const text = startWord > 0 ? words.slice(startWord).join(' ') : fullText;
+
   const utter = new SpeechSynthesisUtterance(text);
   utter.lang = 'en-US';
   utter.rate = playbackRate;
@@ -604,8 +624,9 @@ function startSpeaking(artwork) {
 
   utter.onstart = () => {
     isPlaying = true;
-    utteranceStart = Date.now();
-    utteranceDuration = estimateDuration(text, playbackRate);
+    // Offset start time so the progress bar reflects the skipped portion
+    utteranceStart = Date.now() - startFraction * fullDuration;
+    utteranceDuration = fullDuration;
     startProgressTimer();
     updatePlayerUI();
     updateAllCards();
@@ -644,7 +665,7 @@ function startSpeaking(artwork) {
   document.getElementById('player-bar').classList.add('visible');
   document.getElementById('player-title').textContent = artwork.title;
   document.getElementById('player-artist').textContent = artwork.artist + (artwork.year ? ' · ' + artwork.year : '');
-  document.getElementById('progress-fill').style.width = '0%';
+  document.getElementById('progress-fill').style.width = (startFraction * 100) + '%';
   updatePlayerUI();
   updateAllCards();
 }
@@ -700,8 +721,9 @@ function togglePlay() {
     updateAllCards();
   } else if (synth.speaking) {
     pauseSpeech();
-  } else if (currentIndex >= 0 && currentIndex < filteredArtworks.length) {
-    startSpeaking(filteredArtworks[currentIndex]);
+  } else if (currentArtworkId && museumData) {
+    const artwork = museumData.artworks.find(a => a.id === currentArtworkId);
+    if (artwork) startSpeaking(artwork);
   }
 }
 
@@ -770,11 +792,15 @@ function getBestVoice(voices) {
 function cycleSpeed() {
   const idx = SPEED_STEPS.indexOf(playbackRate);
   playbackRate = SPEED_STEPS[(idx + 1) % SPEED_STEPS.length];
-  const label = playbackRate + '×';
-  document.getElementById('btn-speed').textContent = label;
-  // Restart current track at new speed
-  if ((synth.speaking || synth.paused) && currentIndex >= 0 && currentIndex < filteredArtworks.length) {
-    startSpeaking(filteredArtworks[currentIndex]);
+  document.getElementById('btn-speed').textContent = playbackRate + '×';
+  // Restart from current position at the new speed
+  if ((synth.speaking || synth.paused) && currentArtworkId && museumData) {
+    const artwork = museumData.artworks.find(a => a.id === currentArtworkId);
+    if (artwork) {
+      const elapsed = Date.now() - utteranceStart;
+      const fraction = utteranceDuration > 0 ? Math.min(0.99, elapsed / utteranceDuration) : 0;
+      startSpeaking(artwork, fraction);
+    }
   }
 }
 
@@ -804,20 +830,22 @@ function updateLlmPrompt() {
 }
 
 function buildLlmPrompt(museumName) {
-  return `I want to create a museum audio guide JSON file for "${museumName}".
+  return `⚠️ CRITICAL INSTRUCTION: You MUST include EVERY SINGLE artwork currently on display at "${museumName}" — not just highlights or famous pieces. A partial list will make the guide completely useless. DO NOT stop at 15–20 items.
 
-Please generate a complete, valid JSON file following this EXACT format — no prose, no markdown fences, just the raw JSON:
+💡 TIP: For the most accurate room/location information, you can share a photo of the museum's floor plan or layout map — I'll use it to correctly assign each artwork to its room.
+
+Please generate a complete, valid JSON file for "${museumName}" following this EXACT format — no prose, no markdown fences, just raw JSON:
 
 {
   "format": "museum-audio-guide/v1",
   "meta": {
     "name": "${museumName}",
-    "city": "<City>",
+    "city": "<City, Country>",
     "established": "<Year>",
     "description": "<One-sentence description>"
   },
   "floors": [
-    { "id": 1, "name": "<Floor name, e.g. Ground Floor>" }
+    { "id": 1, "name": "<Floor name>" }
   ],
   "artworks": [
     {
@@ -832,20 +860,25 @@ Please generate a complete, valid JSON file following this EXACT format — no p
       "type": "<painting | sculpture | drawing | other>",
       "highlight": true,
       "tags": ["<tag1>", "<tag2>"],
+      "imageUrl": "<valid image URL from Wikimedia Commons or official museum site, or null>",
       "audioDescription": "<Engaging 2–3 paragraph audio description (~150–200 words). Include visual details, historical context, artistic significance, and an interesting story or anecdote.>"
     }
   ]
 }
 
-Requirements:
-- Include at least 15–20 of the most significant artworks from ${museumName}.
+MANDATORY REQUIREMENTS:
+- ⚠️ Include ALL artworks currently on display — every room, every floor, every wing. Do NOT skip any.
+- ⚠️ Do NOT arbitrarily limit to any number. The guide must be exhaustive and comprehensive.
 - Mark the 4–6 most famous pieces with "highlight": true.
 - Each audioDescription must be 150–200 words, written as if read aloud by a knowledgeable guide.
-- Group artworks logically across floors and rooms.
+- Group artworks logically across floors, wings, and rooms.
 - All "id" values must be unique and use kebab-case.
-- Use only accurate historical information.
+- Use only accurate, verified historical information.
 - "type" must be one of: painting, sculpture, drawing, other.
-- Output only the raw JSON — no markdown, no explanation.`;
+- For "imageUrl": provide a direct image URL from Wikimedia Commons (https://upload.wikimedia.org/…) or the museum's official site. Use null only if truly no image is available.
+- Output ONLY the raw JSON — no markdown, no explanation, no commentary.
+
+This is a complete museum audio guide — thoroughness is everything.`;
 }
 
 function copyLlmPrompt() {
@@ -861,11 +894,72 @@ function copyLlmPrompt() {
   });
 }
 
+// ── SEEK ───────────────────────────────────────────────────
+function seekTo(fraction) {
+  if (!currentArtworkId || !museumData) return;
+  const artwork = museumData.artworks.find(a => a.id === currentArtworkId);
+  if (!artwork) return;
+  startSpeaking(artwork, fraction);
+}
+
+function setupProgressBar() {
+  const bar = document.getElementById('player-progress');
+  let dragging = false;
+
+  function getSeekFraction(clientX) {
+    const rect = bar.getBoundingClientRect();
+    return Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+  }
+  function previewFill(fraction) {
+    document.getElementById('progress-fill').style.width = (fraction * 100) + '%';
+  }
+
+  // Mouse
+  bar.addEventListener('mousedown', e => {
+    if (!currentArtworkId) return;
+    dragging = true;
+    bar.classList.add('seeking');
+    clearInterval(progressTimer);
+    previewFill(getSeekFraction(e.clientX));
+  });
+  document.addEventListener('mousemove', e => {
+    if (!dragging) return;
+    previewFill(getSeekFraction(e.clientX));
+  });
+  document.addEventListener('mouseup', e => {
+    if (!dragging) return;
+    dragging = false;
+    bar.classList.remove('seeking');
+    seekTo(getSeekFraction(e.clientX));
+  });
+
+  // Touch
+  bar.addEventListener('touchstart', e => {
+    if (!currentArtworkId) return;
+    e.preventDefault();
+    dragging = true;
+    bar.classList.add('seeking');
+    clearInterval(progressTimer);
+    previewFill(getSeekFraction(e.touches[0].clientX));
+  }, { passive: false });
+  document.addEventListener('touchmove', e => {
+    if (!dragging) return;
+    previewFill(getSeekFraction(e.touches[0].clientX));
+  });
+  document.addEventListener('touchend', e => {
+    if (!dragging) return;
+    dragging = false;
+    bar.classList.remove('seeking');
+    seekTo(getSeekFraction(e.changedTouches[0].clientX));
+  });
+}
+
 // Load voices asap (needed on iOS/Chrome)
 if (synth.onvoiceschanged !== undefined) {
   synth.onvoiceschanged = () => synth.getVoices();
 }
 synth.getVoices();
+setupProgressBar();
 </script>
 </body>
 </html>
