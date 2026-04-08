@@ -164,8 +164,94 @@
       box-shadow: 0 2px 12px rgba(201,160,48,0.4); transition: transform 0.15s;
     }
     .btn-ctrl-main:active { transform: scale(0.93); }
-    .btn-autoplay { font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 5px; cursor: pointer; padding: 4px 0; }
-    .btn-autoplay input[type=checkbox] { accent-color: var(--gold); }
+    /* SPEED BUTTON */
+    .btn-speed {
+      background: var(--card2); border: 1.5px solid var(--border); border-radius: 20px;
+      color: var(--gold); font-size: 12px; font-weight: 700; padding: 5px 11px;
+      cursor: pointer; transition: border-color 0.15s, background 0.15s; letter-spacing: 0.3px;
+    }
+    .btn-speed:hover { border-color: var(--gold); background: rgba(201,160,48,0.08); }
+    .btn-speed:active { transform: scale(0.94); }
+
+    /* TOGGLE SWITCH (auto-advance) */
+    .toggle-label {
+      display: flex; align-items: center; gap: 8px;
+      cursor: pointer; user-select: none; padding: 4px 0;
+    }
+    .toggle-text { font-size: 12px; color: var(--muted); }
+    .toggle-input { opacity: 0; width: 0; height: 0; position: absolute; }
+    .toggle-slider {
+      display: block; width: 36px; height: 20px; background: var(--card2);
+      border-radius: 10px; border: 1.5px solid var(--border);
+      transition: background 0.25s, border-color 0.25s; position: relative; flex-shrink: 0;
+    }
+    .toggle-slider::after {
+      content: ''; position: absolute; top: 2px; left: 2px;
+      width: 14px; height: 14px; background: var(--muted); border-radius: 50%;
+      transition: transform 0.25s, background 0.25s; box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+    }
+    .toggle-input:checked ~ .toggle-slider { background: var(--gold); border-color: var(--gold); }
+    .toggle-input:checked ~ .toggle-slider::after { transform: translateX(16px); background: #1a0f07; }
+
+    /* LLM PROMPT MODAL */
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.82); z-index: 300;
+      display: flex; align-items: center; justify-content: center; padding: 20px;
+    }
+    .modal-overlay.hidden { display: none; }
+    .modal-box {
+      background: var(--card); border: 1px solid var(--border); border-radius: 18px;
+      padding: 24px; max-width: 520px; width: 100%; max-height: 90dvh;
+      overflow-y: auto; box-shadow: 0 8px 48px rgba(0,0,0,0.6);
+    }
+    .modal-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 14px; gap: 12px;
+    }
+    .modal-header h2 { font-size: 17px; font-weight: 700; color: var(--gold2); }
+    .modal-close {
+      background: none; border: none; color: var(--muted); font-size: 20px;
+      cursor: pointer; padding: 2px 6px; border-radius: 6px; transition: color 0.15s;
+    }
+    .modal-close:hover { color: var(--text); }
+    .modal-desc { font-size: 13px; color: var(--muted); margin-bottom: 16px; line-height: 1.5; }
+    .modal-input {
+      width: 100%; background: var(--bg); border: 1px solid var(--border); border-radius: 10px;
+      color: var(--text); font-size: 15px; padding: 10px 14px; outline: none;
+      transition: border-color 0.2s; margin-bottom: 14px;
+    }
+    .modal-input:focus { border-color: var(--gold); }
+    .modal-input::placeholder { color: var(--muted); }
+    .modal-prompt-out {
+      width: 100%; background: var(--bg); border: 1px solid var(--border); border-radius: 10px;
+      color: var(--muted); font-size: 12px; font-family: 'Menlo','Monaco',monospace;
+      padding: 12px 14px; line-height: 1.65; resize: none; outline: none;
+      margin-bottom: 14px; height: 220px;
+    }
+    .modal-actions { display: flex; gap: 10px; }
+    .btn-copy-prompt {
+      flex: 1; background: linear-gradient(135deg, var(--gold), #a07820);
+      color: #1a0f07; font-weight: 700; font-size: 14px;
+      border: none; border-radius: 50px; padding: 12px 20px;
+      cursor: pointer; transition: transform 0.15s, opacity 0.15s;
+    }
+    .btn-copy-prompt:active { transform: scale(0.96); }
+    .btn-copy-prompt:disabled { opacity: 0.4; cursor: default; }
+    .btn-modal-close {
+      background: var(--card2); border: 1px solid var(--border); border-radius: 50px;
+      color: var(--muted); font-size: 14px; padding: 12px 20px; cursor: pointer;
+    }
+
+    /* AI GENERATE BUTTON (splash) */
+    .btn-ai {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: var(--card); border: 1px solid var(--border);
+      color: var(--gold); font-weight: 600; font-size: 15px;
+      border-radius: 50px; padding: 13px 28px;
+      cursor: pointer; transition: border-color 0.2s, background 0.2s; margin-top: 12px;
+    }
+    .btn-ai:hover { border-color: var(--gold); background: var(--card2); }
+    .btn-ai:active { transform: scale(0.97); }
 
     /* EMPTY / ERROR */
     .empty-state { text-align: center; padding: 60px 24px; color: var(--muted); font-size: 15px; }
@@ -207,7 +293,8 @@
     📂 Load Museum Guide
   </button>
   <input type="file" id="file-input" accept=".json,application/json" onchange="loadFile(event)">
-  <div class="splash-hint">Try loading <strong>prado-madrid.json</strong></div>
+  <button class="btn-ai" onclick="openLlmModal()">🤖 Generate Guide with AI</button>
+  <div class="splash-hint">Load a guide file or generate one with your favourite AI assistant.</div>
 </div>
 
 <!-- ═══════════════════════════════════ APP ════════════════════════════════════── -->
@@ -240,7 +327,33 @@
     <button class="btn-ctrl" onclick="playPrev()" title="Previous">⏮</button>
     <button class="btn-ctrl-main" id="btn-main-play" onclick="togglePlay()">▶</button>
     <button class="btn-ctrl" onclick="playNext()" title="Next">⏭</button>
-    <label class="btn-autoplay"><input type="checkbox" id="autoplay-cb"> Auto-advance</label>
+    <button class="btn-speed" id="btn-speed" onclick="cycleSpeed()" title="Playback speed">1×</button>
+    <label class="toggle-label" title="Auto-advance to next artwork">
+      <input type="checkbox" id="autoplay-cb" class="toggle-input">
+      <span class="toggle-slider"></span>
+      <span class="toggle-text">Auto</span>
+    </label>
+  </div>
+</div>
+
+<!-- LLM PROMPT MODAL -->
+<div id="llm-modal" class="modal-overlay hidden">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h2>🤖 Generate Museum Guide with AI</h2>
+      <button class="modal-close" onclick="closeLlmModal()" aria-label="Close">✕</button>
+    </div>
+    <p class="modal-desc">
+      Enter the museum name below. A ready-to-paste prompt will be generated — copy it and paste it into your favourite AI assistant (ChatGPT, Claude, Gemini…).
+    </p>
+    <input type="text" id="llm-museum-name" class="modal-input"
+      placeholder="e.g. The Louvre, Paris"
+      oninput="updateLlmPrompt()" autocomplete="off" spellcheck="false">
+    <textarea id="llm-prompt-out" class="modal-prompt-out" readonly></textarea>
+    <div class="modal-actions">
+      <button class="btn-copy-prompt" id="btn-copy-prompt" onclick="copyLlmPrompt()" disabled>📋 Copy Prompt</button>
+      <button class="btn-modal-close" onclick="closeLlmModal()">Close</button>
+    </div>
   </div>
 </div>
 
@@ -261,6 +374,8 @@ let resumeTimer = null;
 let progressTimer = null;
 let utteranceStart = 0;
 let utteranceDuration = 0;
+let playbackRate = 1.0;
+const SPEED_STEPS = [0.75, 1.0, 1.25, 1.5];
 
 const synth = window.speechSynthesis;
 
@@ -478,22 +593,19 @@ function startSpeaking(artwork) {
   const text = buildSpeechText(artwork);
   const utter = new SpeechSynthesisUtterance(text);
   utter.lang = 'en-US';
-  utter.rate = 0.88;
+  utter.rate = playbackRate;
   utter.pitch = 1.0;
   utter.volume = 1.0;
 
-  // Pick a good voice if available
+  // Pick the best available voice — prefer neural/online voices
   const voices = synth.getVoices();
-  const preferred = voices.find(v =>
-    (v.lang === 'en-US' || v.lang === 'en_US') &&
-    (v.name.includes('Samantha') || v.name.includes('Karen') || v.name.includes('Moira') || v.name.includes('Google') || !v.localService === false)
-  ) || voices.find(v => v.lang.startsWith('en'));
-  if (preferred) utter.voice = preferred;
+  const best = getBestVoice(voices);
+  if (best) utter.voice = best;
 
   utter.onstart = () => {
     isPlaying = true;
     utteranceStart = Date.now();
-    utteranceDuration = estimateDuration(text, utter.rate);
+    utteranceDuration = estimateDuration(text, playbackRate);
     startProgressTimer();
     updatePlayerUI();
     updateAllCards();
@@ -630,6 +742,126 @@ function escHtml(s) {
 }
 function escAttr(s) {
   return String(s || '').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+// ── VOICE SELECTION ────────────────────────────────────────
+function getBestVoice(voices) {
+  // Prefer names known to sound natural/neural, in priority order
+  const preferred = [
+    'Google US English', 'Google UK English Female', 'Google UK English Male',
+    'Microsoft Aria', 'Microsoft Jenny', 'Microsoft Guy', 'Microsoft Zira',
+    'Samantha', 'Karen', 'Moira', 'Daniel', 'Allison', 'Ava', 'Susan',
+  ];
+  for (const name of preferred) {
+    const v = voices.find(v => v.name.includes(name) && v.lang.startsWith('en'));
+    if (v) return v;
+  }
+  // Any non-local (online/neural) en-US voice
+  const onlineEnUS = voices.find(v => !v.localService && (v.lang === 'en-US' || v.lang === 'en_US'));
+  if (onlineEnUS) return onlineEnUS;
+  // Any en-US voice
+  const enUS = voices.find(v => v.lang === 'en-US' || v.lang === 'en_US');
+  if (enUS) return enUS;
+  // Fallback: any English voice
+  return voices.find(v => v.lang.startsWith('en')) || null;
+}
+
+// ── SPEED CONTROL ──────────────────────────────────────────
+function cycleSpeed() {
+  const idx = SPEED_STEPS.indexOf(playbackRate);
+  playbackRate = SPEED_STEPS[(idx + 1) % SPEED_STEPS.length];
+  const label = Number.isInteger(playbackRate) ? playbackRate + '×' : playbackRate + '×';
+  document.getElementById('btn-speed').textContent = label;
+  // Restart current track at new speed
+  if ((synth.speaking || synth.paused) && currentIndex >= 0 && currentIndex < filteredArtworks.length) {
+    startSpeaking(filteredArtworks[currentIndex]);
+  }
+}
+
+// ── LLM PROMPT MODAL ───────────────────────────────────────
+function openLlmModal() {
+  document.getElementById('llm-museum-name').value = '';
+  document.getElementById('llm-prompt-out').value = '';
+  document.getElementById('btn-copy-prompt').disabled = true;
+  document.getElementById('llm-modal').classList.remove('hidden');
+  setTimeout(() => document.getElementById('llm-museum-name').focus(), 80);
+}
+
+function closeLlmModal() {
+  document.getElementById('llm-modal').classList.add('hidden');
+}
+
+function updateLlmPrompt() {
+  const name = document.getElementById('llm-museum-name').value.trim();
+  const btn = document.getElementById('btn-copy-prompt');
+  if (!name) {
+    document.getElementById('llm-prompt-out').value = '';
+    btn.disabled = true;
+    return;
+  }
+  document.getElementById('llm-prompt-out').value = buildLlmPrompt(name);
+  btn.disabled = false;
+}
+
+function buildLlmPrompt(museumName) {
+  return `I want to create a museum audio guide JSON file for "${museumName}".
+
+Please generate a complete, valid JSON file following this EXACT format — no prose, no markdown fences, just the raw JSON:
+
+{
+  "format": "museum-audio-guide/v1",
+  "meta": {
+    "name": "${museumName}",
+    "city": "<City>",
+    "established": "<Year>",
+    "description": "<One-sentence description>"
+  },
+  "floors": [
+    { "id": 1, "name": "<Floor name, e.g. Ground Floor>" }
+  ],
+  "artworks": [
+    {
+      "id": "<kebab-case-unique-id>",
+      "title": "<Artwork title>",
+      "artist": "<Artist full name>",
+      "year": "<Year or circa>",
+      "floor": 1,
+      "room": "<Room number or name>",
+      "wing": "<Wing or gallery name>",
+      "medium": "<e.g. Oil on canvas>",
+      "type": "<painting | sculpture | drawing | other>",
+      "highlight": true,
+      "tags": ["<tag1>", "<tag2>"],
+      "audioDescription": "<Engaging 2–3 paragraph audio description (~150–200 words). Include visual details, historical context, artistic significance, and an interesting story or anecdote.>"
+    }
+  ]
+}
+
+Requirements:
+- Include at least 15–20 of the most significant artworks from ${museumName}.
+- Mark the 4–6 most famous pieces with "highlight": true.
+- Each audioDescription must be 150–200 words, written as if read aloud by a knowledgeable guide.
+- Group artworks logically across floors and rooms.
+- All "id" values must be unique and use kebab-case.
+- Use only accurate historical information.
+- "type" must be one of: painting, sculpture, drawing, other.
+- Output only the raw JSON — no markdown, no explanation.`;
+}
+
+function copyLlmPrompt() {
+  const text = document.getElementById('llm-prompt-out').value;
+  if (!text) return;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById('btn-copy-prompt');
+    const orig = btn.textContent;
+    btn.textContent = '✅ Copied!';
+    setTimeout(() => { btn.textContent = orig; }, 2000);
+  }).catch(() => {
+    // Fallback for browsers that block clipboard without HTTPS
+    document.getElementById('llm-prompt-out').select();
+    document.execCommand('copy');
+    showToast('✅ Prompt copied to clipboard');
+  });
 }
 
 // Load voices asap (needed on iOS/Chrome)
