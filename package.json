@@ -1,0 +1,14 @@
+{
+  "name": "museum-audio-guide",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "postbuild": "cp dist/index.html index.html",
+    "dev": "vite"
+  },
+  "devDependencies": {
+    "vite": "6.4.2",
+    "vite-plugin-singlefile": "2.0.2"
+  }
+}
