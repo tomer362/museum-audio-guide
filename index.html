@@ -770,7 +770,7 @@ function getBestVoice(voices) {
 function cycleSpeed() {
   const idx = SPEED_STEPS.indexOf(playbackRate);
   playbackRate = SPEED_STEPS[(idx + 1) % SPEED_STEPS.length];
-  const label = Number.isInteger(playbackRate) ? playbackRate + '×' : playbackRate + '×';
+  const label = playbackRate + '×';
   document.getElementById('btn-speed').textContent = label;
   // Restart current track at new speed
   if ((synth.speaking || synth.paused) && currentIndex >= 0 && currentIndex < filteredArtworks.length) {
@@ -857,10 +857,7 @@ function copyLlmPrompt() {
     btn.textContent = '✅ Copied!';
     setTimeout(() => { btn.textContent = orig; }, 2000);
   }).catch(() => {
-    // Fallback for browsers that block clipboard without HTTPS
-    document.getElementById('llm-prompt-out').select();
-    document.execCommand('copy');
-    showToast('✅ Prompt copied to clipboard');
+    showToast('⚠️ Copy failed — please select the text above and copy manually.');
   });
 }
 
