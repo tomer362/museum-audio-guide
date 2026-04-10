@@ -8,9 +8,18 @@
     "description": "Spain's national museum of 20th-century and contemporary art, home to Picasso's Guernica"
   },
   "floors": [
-    { "id": 2, "name": "Collection 1 · The Irruption of the 20th Century (1900–1945)" },
-    { "id": 4, "name": "Collection 1 continued · Rupture and Tradition" },
-    { "id": 3, "name": "Collection 2 · Is the War Over? (1945–1968)" }
+    {
+      "id": 2,
+      "name": "Collection 1 · The Irruption of the 20th Century (1900–1945)"
+    },
+    {
+      "id": 4,
+      "name": "Collection 1 continued · Rupture and Tradition"
+    },
+    {
+      "id": 3,
+      "name": "Collection 2 · Is the War Over? (1945–1968)"
+    }
   ],
   "artworks": [
     {
@@ -24,8 +33,15 @@
       "medium": "Oil on canvas",
       "type": "painting",
       "highlight": false,
-      "tags": ["Barcelona", "realism", "marginalized", "early modernism", "social"],
-      "audioDescription": "Isidre Nonell was one of the key figures of early Catalan modernisme, and his paintings of Roma women stand as some of the most powerful social documents in Spanish art at the turn of the twentieth century. Born in Barcelona in 1872, Nonell spent formative years in Paris before returning to his native city, where he focused almost exclusively on the Roma communities living on the margins of urban society.\n\nIn this work, a lone figure is rendered with extraordinary psychological intensity. The woman sits in three-quarters view, wrapped in dark, loosely painted drapery. Her face bears an expression that is difficult to categorize—resignation, perhaps, or a kind of wary stillness. Nonell makes no attempt to idealize or romanticize; this is an unflinching encounter with a life lived outside the edges of respectable society.\n\nNonell's brushwork is loose and expressive, his palette dominated by dark ochres, earth tones, and shadowy grays punctuated by the warm light falling across the figure's cheek and hands. The influence of Velázquez's realism and Goya's social consciousness is palpable, yet Nonell channels these traditions through a distinctly modern sensibility shaped by his Paris years.\n\nTragically, Nonell died young in 1911 at only thirty-eight. His paintings of gitanas—Roma women—remain his most celebrated achievement, a body of work that helped establish Barcelona as a center of vital artistic activity at the dawn of the modern era."
+      "tags": [
+        "Barcelona",
+        "realism",
+        "marginalized",
+        "early modernism",
+        "social"
+      ],
+      "audioDescription": "Isidre Nonell was one of the key figures of early Catalan modernisme, and his paintings of Roma women stand as some of the most powerful social documents in Spanish art at the turn of the twentieth century. Born in Barcelona in 1872, Nonell spent formative years in Paris before returning to his native city, where he focused almost exclusively on the Roma communities living on the margins of urban society.\n\nIn this work, a lone figure is rendered with extraordinary psychological intensity. The woman sits in three-quarters view, wrapped in dark, loosely painted drapery. Her face bears an expression that is difficult to categorize—resignation, perhaps, or a kind of wary stillness. Nonell makes no attempt to idealize or romanticize; this is an unflinching encounter with a life lived outside the edges of respectable society.\n\nNonell's brushwork is loose and expressive, his palette dominated by dark ochres, earth tones, and shadowy grays punctuated by the warm light falling across the figure's cheek and hands. The influence of Velázquez's realism and Goya's social consciousness is palpable, yet Nonell channels these traditions through a distinctly modern sensibility shaped by his Paris years.\n\nTragically, Nonell died young in 1911 at only thirty-eight. His paintings of gitanas—Roma women—remain his most celebrated achievement, a body of work that helped establish Barcelona as a center of vital artistic activity at the dawn of the modern era.",
+      "imageUrl": null
     },
     {
       "id": "picasso-woman-in-blue-1901",
@@ -38,8 +54,15 @@
       "medium": "Oil on canvas",
       "type": "painting",
       "highlight": true,
-      "tags": ["Picasso", "early work", "blue period", "portrait", "Spanish"],
-      "audioDescription": "Standing before this monumental canvas, you encounter one of Picasso's most enigmatic early works. Painted in Madrid in 1901 when the artist was just nineteen years old, Woman in Blue was initially submitted to the National Fine Arts Exhibition and rejected by the jury. Picasso reportedly abandoned it in his Madrid studio, and for decades it was considered lost—only to be rediscovered by the Spanish state in 1936.\n\nThe woman dominates the canvas with an imposing theatrical presence, dressed in an elaborate blue gown adorned with ruffles, lace, and bows. Her face is rendered with psychological intensity—her dark, somewhat melancholic eyes gaze outward with a directness that feels almost confrontational. The theatrical costume suggests she may be a performer or actress, figures that fascinated Picasso throughout his career.\n\nWhat makes this work remarkable is how it bridges Picasso's academic training and the bold innovation that would define his later career. The blue tones anticipate his famous Blue Period, which began later that same year following the suicide of his close friend Carles Casagemas. Look closely at the brushwork—it shifts between meticulous academic rendering in the face and looser, more expressive strokes in the enormous dress, revealing a young artist already pushing against the boundaries of conventional painting.\n\nThis painting is one of the rare early Picassos to remain in Spain, and it stands as a remarkable document of a prodigious talent on the cusp of transformation."
+      "tags": [
+        "Picasso",
+        "early work",
+        "blue period",
+        "portrait",
+        "Spanish"
+      ],
+      "audioDescription": "Standing before this monumental canvas, you encounter one of Picasso's most enigmatic early works. Painted in Madrid in 1901 when the artist was just nineteen years old, Woman in Blue was initially submitted to the National Fine Arts Exhibition and rejected by the jury. Picasso reportedly abandoned it in his Madrid studio, and for decades it was considered lost—only to be rediscovered by the Spanish state in 1936.\n\nThe woman dominates the canvas with an imposing theatrical presence, dressed in an elaborate blue gown adorned with ruffles, lace, and bows. Her face is rendered with psychological intensity—her dark, somewhat melancholic eyes gaze outward with a directness that feels almost confrontational. The theatrical costume suggests she may be a performer or actress, figures that fascinated Picasso throughout his career.\n\nWhat makes this work remarkable is how it bridges Picasso's academic training and the bold innovation that would define his later career. The blue tones anticipate his famous Blue Period, which began later that same year following the suicide of his close friend Carles Casagemas. Look closely at the brushwork—it shifts between meticulous academic rendering in the face and looser, more expressive strokes in the enormous dress, revealing a young artist already pushing against the boundaries of conventional painting.\n\nThis painting is one of the rare early Picassos to remain in Spain, and it stands as a remarkable document of a prodigious talent on the cusp of transformation.",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Pablo_Picasso%2C_1901%2C_Woman_in_Blue%2C_oil_on_canvas%2C_133.5_x_101_cm%2C_Museo_Nacional_Centro_de_Arte_Reina_Sof%C3%ADa%2C_Madrid.jpg/800px-Pablo_Picasso%2C_1901%2C_Woman_in_Blue%2C_oil_on_canvas%2C_133.5_x_101_cm%2C_Museo_Nacional_Centro_de_Arte_Reina_Sof%C3%ADa%2C_Madrid.jpg"
     },
     {
       "id": "gris-smoker-1913",
@@ -52,8 +75,15 @@
       "medium": "Oil on canvas",
       "type": "painting",
       "highlight": false,
-      "tags": ["Cubism", "Juan Gris", "Spanish", "geometric", "Paris"],
-      "audioDescription": "Juan Gris was born in Madrid in 1887 as José Victoriano González, taking the pseudonym Juan Gris when he moved to Paris at age nineteen. This work, The Smoker, demonstrates his mastery of Synthetic Cubism at its most sophisticated.\n\nUnlike Analytic Cubism—which broke forms apart into a monochrome analysis of structure—Synthetic Cubism reassembled simplified, flat shapes into bold new compositions. Here, Gris presents a seated figure with a pipe, a classic subject for Cubist painters, but deconstructs it into bold planes of color and geometric form. Notice how the figure's newspaper, collar, and facial features are simultaneously shown from multiple angles, creating a spatial complexity that challenges our conventional way of seeing.\n\nGris brought a distinctive intellectual rigor to Cubism that even Picasso admired. He described his method as working from abstraction to reality: beginning with an abstract composition and gradually introducing recognizable elements. The muted palette here—grays, ochres, and blacks—is characteristic of his work from this period, when he was most closely aligned with Picasso and Braque in the Montmartre community around the legendary Bateau-Lavoir studios.\n\nGris died tragically young at thirty-nine in 1927, leaving a body of work that many consider the most rigorously pure expression of Cubist principles. The Reina Sofía holds one of the world's finest collections of his paintings, testament to his status as Spain's greatest contribution to the Cubist movement."
+      "tags": [
+        "Cubism",
+        "Juan Gris",
+        "Spanish",
+        "geometric",
+        "Paris"
+      ],
+      "audioDescription": "Juan Gris was born in Madrid in 1887 as José Victoriano González, taking the pseudonym Juan Gris when he moved to Paris at age nineteen. This work, The Smoker, demonstrates his mastery of Synthetic Cubism at its most sophisticated.\n\nUnlike Analytic Cubism—which broke forms apart into a monochrome analysis of structure—Synthetic Cubism reassembled simplified, flat shapes into bold new compositions. Here, Gris presents a seated figure with a pipe, a classic subject for Cubist painters, but deconstructs it into bold planes of color and geometric form. Notice how the figure's newspaper, collar, and facial features are simultaneously shown from multiple angles, creating a spatial complexity that challenges our conventional way of seeing.\n\nGris brought a distinctive intellectual rigor to Cubism that even Picasso admired. He described his method as working from abstraction to reality: beginning with an abstract composition and gradually introducing recognizable elements. The muted palette here—grays, ochres, and blacks—is characteristic of his work from this period, when he was most closely aligned with Picasso and Braque in the Montmartre community around the legendary Bateau-Lavoir studios.\n\nGris died tragically young at thirty-nine in 1927, leaving a body of work that many consider the most rigorously pure expression of Cubist principles. The Reina Sofía holds one of the world's finest collections of his paintings, testament to his status as Spain's greatest contribution to the Cubist movement.",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Juan_Gris_-_The_Smoker_%281913%29.jpg/800px-Juan_Gris_-_The_Smoker_%281913%29.jpg"
     },
     {
       "id": "blanchard-composition-cubiste-1916",
@@ -66,8 +96,15 @@
       "medium": "Oil on canvas",
       "type": "painting",
       "highlight": false,
-      "tags": ["Cubism", "woman artist", "Spanish", "Paris", "avant-garde"],
-      "audioDescription": "María Blanchard is one of the most unjustly overlooked figures of the European avant-garde. Born in Santander in 1881 with a spinal deformity that caused her lifelong physical and social suffering, she channeled her inner world into paintings of extraordinary power and originality. She studied in Madrid and later in Paris, where she became a close friend of Diego Rivera and Juan Gris, and was deeply embedded in the Cubist circle.\n\nThis composition from 1916 represents the height of her engagement with Cubism. The geometric fragmentation of form is confident and assured, built from interlocking planes of muted color that lock together with the logic of a mosaic. She brings a warmth to Cubism that sets her apart—even in abstraction, her work has an emotional, almost human quality that distinguishes it from the more cerebral productions of her contemporaries.\n\nBlanchard grew disillusioned with avant-garde abstraction after the First World War, returning to figurative painting focused on mothers and children—perhaps reflecting her own longing for connection and belonging. She died in Paris in 1932, largely forgotten by the art world.\n\nThe Reina Sofía's sustained attention to her work is a vital act of reclamation. This painting restores her rightful place in the history of modern art and reminds us that the Cubist circle was more diverse and international than standard art histories have acknowledged."
+      "tags": [
+        "Cubism",
+        "woman artist",
+        "Spanish",
+        "Paris",
+        "avant-garde"
+      ],
+      "audioDescription": "María Blanchard is one of the most unjustly overlooked figures of the European avant-garde. Born in Santander in 1881 with a spinal deformity that caused her lifelong physical and social suffering, she channeled her inner world into paintings of extraordinary power and originality. She studied in Madrid and later in Paris, where she became a close friend of Diego Rivera and Juan Gris, and was deeply embedded in the Cubist circle.\n\nThis composition from 1916 represents the height of her engagement with Cubism. The geometric fragmentation of form is confident and assured, built from interlocking planes of muted color that lock together with the logic of a mosaic. She brings a warmth to Cubism that sets her apart—even in abstraction, her work has an emotional, almost human quality that distinguishes it from the more cerebral productions of her contemporaries.\n\nBlanchard grew disillusioned with avant-garde abstraction after the First World War, returning to figurative painting focused on mothers and children—perhaps reflecting her own longing for connection and belonging. She died in Paris in 1932, largely forgotten by the art world.\n\nThe Reina Sofía's sustained attention to her work is a vital act of reclamation. This painting restores her rightful place in the history of modern art and reminds us that the Cubist circle was more diverse and international than standard art histories have acknowledged.",
+      "imageUrl": null
     },
     {
       "id": "miro-portrait-ricart-1917",
@@ -80,8 +117,15 @@
       "medium": "Oil on canvas",
       "type": "painting",
       "highlight": false,
-      "tags": ["Miró", "Catalan", "portrait", "early work", "decorative"],
-      "audioDescription": "This portrait, painted when Joan Miró was just twenty-four years old, reveals the extraordinary technical skill the Catalan master possessed before he undertook his radical simplification of form. The subject is Enric Cristòfor Ricart, a fellow Catalan painter and close friend of Miró's youth, shown seated in a vividly patterned dressing gown against an equally decorative background.\n\nThe painting is remarkable for its bold fusion of influences: the flat, patterned fabric and vivid areas of color reveal Miró's enthusiasm for Japanese woodblock prints and French Fauvism, while the precise, almost linear rendering of the face recalls the Flemish portrait tradition. The decorative wallpaper-like background already anticipates the all-over patterning and flat color fields that would characterize his mature work.\n\nYet what strikes most viewers is how radically different this is from the Miró we know—the inventor of those joyful, biomorphic forms, the red circles and dancing black lines that float against pure color fields. Here we see a painter still deeply embedded in tradition, carefully mastering skills he would later abandon in the name of a more elemental vision.\n\nThis portrait is a fascinating early document of an artist on the threshold of his own reinvention. Within a few years Miró would move to Paris and begin the process of stripping everything back, arriving at the visual language that made him one of the most instantly recognizable painters in the history of art."
+      "tags": [
+        "Miró",
+        "Catalan",
+        "portrait",
+        "early work",
+        "decorative"
+      ],
+      "audioDescription": "This portrait, painted when Joan Miró was just twenty-four years old, reveals the extraordinary technical skill the Catalan master possessed before he undertook his radical simplification of form. The subject is Enric Cristòfor Ricart, a fellow Catalan painter and close friend of Miró's youth, shown seated in a vividly patterned dressing gown against an equally decorative background.\n\nThe painting is remarkable for its bold fusion of influences: the flat, patterned fabric and vivid areas of color reveal Miró's enthusiasm for Japanese woodblock prints and French Fauvism, while the precise, almost linear rendering of the face recalls the Flemish portrait tradition. The decorative wallpaper-like background already anticipates the all-over patterning and flat color fields that would characterize his mature work.\n\nYet what strikes most viewers is how radically different this is from the Miró we know—the inventor of those joyful, biomorphic forms, the red circles and dancing black lines that float against pure color fields. Here we see a painter still deeply embedded in tradition, carefully mastering skills he would later abandon in the name of a more elemental vision.\n\nThis portrait is a fascinating early document of an artist on the threshold of his own reinvention. Within a few years Miró would move to Paris and begin the process of stripping everything back, arriving at the visual language that made him one of the most instantly recognizable painters in the history of art.",
+      "imageUrl": null
     },
     {
       "id": "picasso-guernica-1937",
@@ -94,8 +138,17 @@
       "medium": "Oil on canvas",
       "type": "painting",
       "highlight": true,
-      "tags": ["Picasso", "Guernica", "Spanish Civil War", "masterpiece", "anti-war", "monumental", "must-see"],
-      "audioDescription": "You are now standing before one of the most important paintings in the history of art. Guernica. This vast canvas—measuring nearly eight meters wide and three and a half meters tall—was painted by Pablo Picasso in response to the Nazi bombing of the Basque town of Guernica on April 26, 1937, during the Spanish Civil War. The attack, carried out by Hitler's Condor Legion in support of Franco's Nationalist forces, killed hundreds of civilians on a busy market day and became an international symbol of fascist brutality.\n\nPicasso received the commission to create a mural for the Spanish Pavilion at the 1937 Paris World's Fair just two months before the bombing. He had been struggling to find a subject, but the attack galvanized him completely. He completed the monumental work in just over a month, making forty-five preparatory studies—all displayed in the adjacent rooms.\n\nThe painting contains no color—only black, white, and graduated grays. This choice gives the scene the immediacy of a newspaper photograph or newsreel footage. Across the canvas Picasso depicts a fragmented world of horror: a screaming horse pierced by a spear, a bull whose tail flares like a flame, a mother wailing over her dead child, dismembered bodies, and a figure with arms raised in helpless terror. A bare electric light bulb blazes overhead like a merciless eye, and a figure leans from a window holding an oil lamp—perhaps the lamp of truth, of witness.\n\nThe painting refused to remain a symbol of the Spanish Civil War alone. Picasso refused to allow it to return to Spain while Franco ruled, and it remained at New York's Museum of Modern Art from 1939 until 1981—six years after Franco's death—when it finally came home to the Spanish people. It remains the most powerful indictment of war in the history of painting."
+      "tags": [
+        "Picasso",
+        "Guernica",
+        "Spanish Civil War",
+        "masterpiece",
+        "anti-war",
+        "monumental",
+        "must-see"
+      ],
+      "audioDescription": "You are now standing before one of the most important paintings in the history of art. Guernica. This vast canvas—measuring nearly eight meters wide and three and a half meters tall—was painted by Pablo Picasso in response to the Nazi bombing of the Basque town of Guernica on April 26, 1937, during the Spanish Civil War. The attack, carried out by Hitler's Condor Legion in support of Franco's Nationalist forces, killed hundreds of civilians on a busy market day and became an international symbol of fascist brutality.\n\nPicasso received the commission to create a mural for the Spanish Pavilion at the 1937 Paris World's Fair just two months before the bombing. He had been struggling to find a subject, but the attack galvanized him completely. He completed the monumental work in just over a month, making forty-five preparatory studies—all displayed in the adjacent rooms.\n\nThe painting contains no color—only black, white, and graduated grays. This choice gives the scene the immediacy of a newspaper photograph or newsreel footage. Across the canvas Picasso depicts a fragmented world of horror: a screaming horse pierced by a spear, a bull whose tail flares like a flame, a mother wailing over her dead child, dismembered bodies, and a figure with arms raised in helpless terror. A bare electric light bulb blazes overhead like a merciless eye, and a figure leans from a window holding an oil lamp—perhaps the lamp of truth, of witness.\n\nThe painting refused to remain a symbol of the Spanish Civil War alone. Picasso refused to allow it to return to Spain while Franco ruled, and it remained at New York's Museum of Modern Art from 1939 until 1981—six years after Franco's death—when it finally came home to the Spanish people. It remains the most powerful indictment of war in the history of painting.",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/7/74/PicassoGuernica.jpg"
     },
     {
       "id": "gonzalez-head-montserrat-1942",
@@ -108,8 +161,16 @@
       "medium": "Iron",
       "type": "sculpture",
       "highlight": true,
-      "tags": ["sculpture", "iron", "Spanish Civil War", "anguish", "Catalan", "welded metal"],
-      "audioDescription": "Julio González was a Spanish sculptor who pioneered the use of welded iron as a fine art medium, fundamentally transforming the possibilities of sculpture in the twentieth century. Born in Barcelona in 1876, González trained as a metalworker alongside his father and brother before dedicating himself to art. He is rightly called the father of modern iron sculpture, and his influence on subsequent generations—from David Smith to Anthony Caro—was immense.\n\nThis work, Head of Montserrat Screaming, was created in 1942, during the dark years following the Spanish Civil War and the opening years of the Second World War. Montserrat refers both to a dramatic mountain range near Barcelona and to the patron saint of Catalonia, making this simultaneously a portrait of individual anguish and a symbol of a wounded nation.\n\nThe face is caught in a scream that unmistakably echoes the grief of Picasso's Guernica, which González had witnessed when it was exhibited in Paris. The open mouth, the straining features, and the raw physicality of the worked iron all contribute to an overwhelming sense of suffering. González has stripped facial representation to its barest essentials—hollows for eyes, a gaping cavity for the mouth—creating something that feels more like a primal cry than a portrait.\n\nGonzález died in 1942, the year this work was created, having never seen Spain return to democracy. Displayed in the same gallery as Guernica, this iron head stands as a piercing echo of its neighbor's anguish."
+      "tags": [
+        "sculpture",
+        "iron",
+        "Spanish Civil War",
+        "anguish",
+        "Catalan",
+        "welded metal"
+      ],
+      "audioDescription": "Julio González was a Spanish sculptor who pioneered the use of welded iron as a fine art medium, fundamentally transforming the possibilities of sculpture in the twentieth century. Born in Barcelona in 1876, González trained as a metalworker alongside his father and brother before dedicating himself to art. He is rightly called the father of modern iron sculpture, and his influence on subsequent generations—from David Smith to Anthony Caro—was immense.\n\nThis work, Head of Montserrat Screaming, was created in 1942, during the dark years following the Spanish Civil War and the opening years of the Second World War. Montserrat refers both to a dramatic mountain range near Barcelona and to the patron saint of Catalonia, making this simultaneously a portrait of individual anguish and a symbol of a wounded nation.\n\nThe face is caught in a scream that unmistakably echoes the grief of Picasso's Guernica, which González had witnessed when it was exhibited in Paris. The open mouth, the straining features, and the raw physicality of the worked iron all contribute to an overwhelming sense of suffering. González has stripped facial representation to its barest essentials—hollows for eyes, a gaping cavity for the mouth—creating something that feels more like a primal cry than a portrait.\n\nGonzález died in 1942, the year this work was created, having never seen Spain return to democracy. Displayed in the same gallery as Guernica, this iron head stands as a piercing echo of its neighbor's anguish.",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/67/Julio_Gonz%C3%A1lez_-_Head_of_Montserrat_Screaming.jpg"
     },
     {
       "id": "solana-procession-death-1930",
@@ -122,8 +183,16 @@
       "medium": "Oil on canvas",
       "type": "painting",
       "highlight": false,
-      "tags": ["Spanish", "social realism", "religion", "dark", "Goya", "traditional Spain"],
-      "audioDescription": "José Gutiérrez Solana occupies a singular, somewhat unsettling place in Spanish art. Often described as the last heir of Goya's darkest visions, he painted Spain's rural and urban underbelly with unflinching, almost obsessive focus on decay, death, and the grotesque. He saw Spain with none of the nostalgia or idealization of his contemporaries, and his canvases function as raw social documents.\n\nThe Procession of Death is one of his most powerful works. A procession of hooded penitents—wearing the tall capirote hoods associated with Holy Week brotherhoods—winds through a dark, indeterminate landscape. The figures are rendered with manic intensity: their white and black robes glow against the gloomy sky, their hollow eyes stare from beneath pointed hoods. Some carry candles or crucifixes; others simply shuffle forward, absorbed into the mass of the procession.\n\nSolana painted this during a period of intense political tension in Spain, as the structures of church and monarchy were being challenged by Republican modernizers. The painting captures the psychological weight of Spanish Catholic tradition—the rituals of public penance and performed suffering that had shaped Spanish identity for centuries.\n\nThere is something simultaneously eerie, fascinating, and repellent about Solana's work. He compels us to look at aspects of Spanish life that polite society preferred to ignore: the hospitals, the brothels, the village carnivals, the penitential processions. In doing so, he created some of the most powerful social documents in the history of Spanish painting."
+      "tags": [
+        "Spanish",
+        "social realism",
+        "religion",
+        "dark",
+        "Goya",
+        "traditional Spain"
+      ],
+      "audioDescription": "José Gutiérrez Solana occupies a singular, somewhat unsettling place in Spanish art. Often described as the last heir of Goya's darkest visions, he painted Spain's rural and urban underbelly with unflinching, almost obsessive focus on decay, death, and the grotesque. He saw Spain with none of the nostalgia or idealization of his contemporaries, and his canvases function as raw social documents.\n\nThe Procession of Death is one of his most powerful works. A procession of hooded penitents—wearing the tall capirote hoods associated with Holy Week brotherhoods—winds through a dark, indeterminate landscape. The figures are rendered with manic intensity: their white and black robes glow against the gloomy sky, their hollow eyes stare from beneath pointed hoods. Some carry candles or crucifixes; others simply shuffle forward, absorbed into the mass of the procession.\n\nSolana painted this during a period of intense political tension in Spain, as the structures of church and monarchy were being challenged by Republican modernizers. The painting captures the psychological weight of Spanish Catholic tradition—the rituals of public penance and performed suffering that had shaped Spanish identity for centuries.\n\nThere is something simultaneously eerie, fascinating, and repellent about Solana's work. He compels us to look at aspects of Spanish life that polite society preferred to ignore: the hospitals, the brothels, the village carnivals, the penitential processions. In doing so, he created some of the most powerful social documents in the history of Spanish painting.",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Jos%C3%A9_Guti%C3%A9rrez_Solana_-_Procesion_de_la_muerte_%281930%29.jpg/800px-Jos%C3%A9_Guti%C3%A9rrez_Solana_-_Procesion_de_la_muerte_%281930%29.jpg"
     },
     {
       "id": "sanchez-spanish-people-1937",
@@ -136,8 +205,16 @@
       "medium": "Painted concrete (reconstruction)",
       "type": "sculpture",
       "highlight": true,
-      "tags": ["Spanish Civil War", "Republican", "totemic", "outdoor", "Paris 1937", "political"],
-      "audioDescription": "This dramatic totemic sculpture was created by Alberto Sánchez for the legendary Spanish Pavilion at the 1937 Paris International Exhibition—the same pavilion that displayed Picasso's Guernica and Miró's The Reaper. Together, these three works represented Spanish Republican culture's defiant response to fascism at one of the most charged artistic moments of the twentieth century.\n\nAlberto Sánchez Pérez was born in Toledo in 1895, the son of a baker. Largely self-taught, he worked as a baker and laborer before developing his sculptural vision. He was profoundly influenced by the landscapes of Castile—its ochre earth, its sweeping horizon lines, its ancient standing stones—and these elemental forms pulse through all his work.\n\nWhat you see here is a reconstruction of the original, which was destroyed after the pavilion closed. Rising nearly seven meters tall, the sculpture is a column of abstracted organic forms—simultaneously suggestive of a cactus, a backbone, a flame, a figure stretching upward. At the summit, the forms reach upward as if straining toward something just beyond reach: the star of the title.\n\nThe title is laden with political meaning. The 'star' evokes both the red star of the Spanish Republic and a broader cosmic aspiration—hope that survives catastrophe. Sánchez, forced into exile after the Civil War, spent the rest of his life in the Soviet Union, never returning to Spain. This reconstruction is all that remains of his contribution to the most celebrated art exhibition of the twentieth century."
+      "tags": [
+        "Spanish Civil War",
+        "Republican",
+        "totemic",
+        "outdoor",
+        "Paris 1937",
+        "political"
+      ],
+      "audioDescription": "This dramatic totemic sculpture was created by Alberto Sánchez for the legendary Spanish Pavilion at the 1937 Paris International Exhibition—the same pavilion that displayed Picasso's Guernica and Miró's The Reaper. Together, these three works represented Spanish Republican culture's defiant response to fascism at one of the most charged artistic moments of the twentieth century.\n\nAlberto Sánchez Pérez was born in Toledo in 1895, the son of a baker. Largely self-taught, he worked as a baker and laborer before developing his sculptural vision. He was profoundly influenced by the landscapes of Castile—its ochre earth, its sweeping horizon lines, its ancient standing stones—and these elemental forms pulse through all his work.\n\nWhat you see here is a reconstruction of the original, which was destroyed after the pavilion closed. Rising nearly seven meters tall, the sculpture is a column of abstracted organic forms—simultaneously suggestive of a cactus, a backbone, a flame, a figure stretching upward. At the summit, the forms reach upward as if straining toward something just beyond reach: the star of the title.\n\nThe title is laden with political meaning. The 'star' evokes both the red star of the Spanish Republic and a broader cosmic aspiration—hope that survives catastrophe. Sánchez, forced into exile after the Civil War, spent the rest of his life in the Soviet Union, never returning to Spain. This reconstruction is all that remains of his contribution to the most celebrated art exhibition of the twentieth century.",
+      "imageUrl": null
     },
     {
       "id": "dali-girl-window-1925",
@@ -150,8 +227,16 @@
       "medium": "Oil on canvas",
       "type": "painting",
       "highlight": false,
-      "tags": ["Dalí", "early work", "realism", "sister", "Cadaqués", "figurative"],
-      "audioDescription": "This intimate early work by Salvador Dalí invites you into a moment of quiet, suspended contemplation. A young woman—widely believed to be Dalí's sister, Ana María, his closest companion during his years in Cadaqués—stands with her back to us, looking out through an open window toward the sparkling water of the bay below.\n\nPainted when Dalí was just twenty-one years old, the work predates his Surrealist breakthrough by several years and demonstrates his remarkable technical facility in the academic tradition. The figure is rendered with meticulous, almost photographic precision—the thin white dress catching the light, the cascading dark hair, the texture of the wooden windowsill, and the dancing shimmer on the water are all observed with extraordinary care and patience.\n\nThe composition creates a powerful psychological tension. By showing us the back of the figure, Dalí positions us as observers of an observer. We share her gaze but cannot know her thoughts. The window functions as a classic threshold between the domestic interior and the infinite world beyond—a motif rich with symbolic meaning that Caspar David Friedrich had used to great effect a century earlier.\n\nThere is a poignant irony to this painting. Ana María and Salvador had an intensely close relationship that was shattered when he met Gala Éluard in 1929. He cruelly distanced himself from his family, and Ana María later published a memoir sharply critical of her brother. This tender portrait belongs to a time of innocence, before the fractures that would define his adult life."
+      "tags": [
+        "Dalí",
+        "early work",
+        "realism",
+        "sister",
+        "Cadaqués",
+        "figurative"
+      ],
+      "audioDescription": "This intimate early work by Salvador Dalí invites you into a moment of quiet, suspended contemplation. A young woman—widely believed to be Dalí's sister, Ana María, his closest companion during his years in Cadaqués—stands with her back to us, looking out through an open window toward the sparkling water of the bay below.\n\nPainted when Dalí was just twenty-one years old, the work predates his Surrealist breakthrough by several years and demonstrates his remarkable technical facility in the academic tradition. The figure is rendered with meticulous, almost photographic precision—the thin white dress catching the light, the cascading dark hair, the texture of the wooden windowsill, and the dancing shimmer on the water are all observed with extraordinary care and patience.\n\nThe composition creates a powerful psychological tension. By showing us the back of the figure, Dalí positions us as observers of an observer. We share her gaze but cannot know her thoughts. The window functions as a classic threshold between the domestic interior and the infinite world beyond—a motif rich with symbolic meaning that Caspar David Friedrich had used to great effect a century earlier.\n\nThere is a poignant irony to this painting. Ana María and Salvador had an intensely close relationship that was shattered when he met Gala Éluard in 1929. He cruelly distanced himself from his family, and Ana María later published a memoir sharply critical of her brother. This tender portrait belongs to a time of innocence, before the fractures that would define his adult life.",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/b/b5/Dali_-_Girl_Standing_at_a_Window.jpg"
     },
     {
       "id": "dali-great-masturbator-1929",
@@ -164,8 +249,17 @@
       "medium": "Oil on canvas",
       "type": "painting",
       "highlight": true,
-      "tags": ["Dalí", "Surrealism", "masterpiece", "unconscious", "Gala", "sexual anxiety", "must-see"],
-      "audioDescription": "We enter the hallucinatory landscape of Salvador Dalí's most autobiographical Surrealist masterpiece. The Great Masturbator was painted in 1929, a year of personal revolution for the artist: he met Gala Éluard, the woman who would become his muse and lifelong partner; he was officially expelled from the family home by his outraged father; and he plunged headlong into Surrealism.\n\nAt the center of the canvas, a large organic form—based on a rock formation at Cape Creus on the Costa Brava—dissolves into a closed-eyed face with an elongated nose pressed against the ground. From below this face, a female figure emerges, her head pressing upward toward a male torso from which a locust crawls. Dalí had a profound phobia of locusts and grasshoppers, which appear frequently in his work as symbols of sexual anxiety and dread.\n\nThroughout the canvas, Dalí deploys his famous paranoiac-critical method—a systematic exploration of irrational imagery drawn from his unconscious. Melting and dissolving forms, unexpected juxtapositions, organic shapes metamorphosing into human anatomy: the painting is at once deeply personal and universally readable as a meditation on desire, fear, and the turmoil of the inner life.\n\nOther figures and symbols populate the dreamscape—a lion's head, a woman's legs, an androgynous figure with a white collar. Each carries a specific meaning within Dalí's private mythology, though the painting communicates its emotional charge even without decoding every symbol. Dalí later described this as one of the first paintings in which he fully realized his artistic vision."
+      "tags": [
+        "Dalí",
+        "Surrealism",
+        "masterpiece",
+        "unconscious",
+        "Gala",
+        "sexual anxiety",
+        "must-see"
+      ],
+      "audioDescription": "We enter the hallucinatory landscape of Salvador Dalí's most autobiographical Surrealist masterpiece. The Great Masturbator was painted in 1929, a year of personal revolution for the artist: he met Gala Éluard, the woman who would become his muse and lifelong partner; he was officially expelled from the family home by his outraged father; and he plunged headlong into Surrealism.\n\nAt the center of the canvas, a large organic form—based on a rock formation at Cape Creus on the Costa Brava—dissolves into a closed-eyed face with an elongated nose pressed against the ground. From below this face, a female figure emerges, her head pressing upward toward a male torso from which a locust crawls. Dalí had a profound phobia of locusts and grasshoppers, which appear frequently in his work as symbols of sexual anxiety and dread.\n\nThroughout the canvas, Dalí deploys his famous paranoiac-critical method—a systematic exploration of irrational imagery drawn from his unconscious. Melting and dissolving forms, unexpected juxtapositions, organic shapes metamorphosing into human anatomy: the painting is at once deeply personal and universally readable as a meditation on desire, fear, and the turmoil of the inner life.\n\nOther figures and symbols populate the dreamscape—a lion's head, a woman's legs, an androgynous figure with a white collar. Each carries a specific meaning within Dalí's private mythology, though the painting communicates its emotional charge even without decoding every symbol. Dalí later described this as one of the first paintings in which he fully realized his artistic vision.",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/4/4a/The_Great_Masturbator_%281929%29_Salvador_Dal%C3%AD.jpg"
     },
     {
       "id": "dali-enigma-desire-1929",
@@ -178,8 +272,16 @@
       "medium": "Oil on canvas",
       "type": "painting",
       "highlight": false,
-      "tags": ["Dalí", "Surrealism", "mother", "psychoanalysis", "Cape Creus", "Freud"],
-      "audioDescription": "Painted in the same transformative year as The Great Masturbator, The Enigma of Desire is another key work from Dalí's Surrealist breakthrough. The painting's original title—My Mother, My Mother, My Mother—was changed before exhibition, though it reveals the work's core subject: Dalí's complex, ambivalent feelings about his late mother, who died of uterine cancer when he was a teenager of fifteen.\n\nThe central form is a vast, undulating mass of flesh-colored rock that fills much of the canvas. Its surface is honeycombed with irregular cavities, each inscribed with the words 'ma mère'—my mother—in Dalí's own handwriting. Within and around these chambers, strange figures and forms proliferate: a lion's head, an insect, the artist's own miniaturized likeness, and melting organic forms.\n\nThe amorphous, cavelike central mass can be read as a psychological landscape—a maternal body riddled with the chambers of memory, desire, and grief. The rock formations are again based on Cap de Creus, the dramatic headland at the northeastern tip of Catalonia, which functioned for Dalí as a kind of externalized unconscious landscape. The coastline, with its eroded, anthropomorphic rock forms, appears throughout his Surrealist work.\n\nThis painting marks Dalí's full arrival as a Surrealist, demonstrating his ability to translate the workings of the unconscious mind into precisely rendered, hallucinatory imagery. It is one of the jewels of the Reina Sofía's collection."
+      "tags": [
+        "Dalí",
+        "Surrealism",
+        "mother",
+        "psychoanalysis",
+        "Cape Creus",
+        "Freud"
+      ],
+      "audioDescription": "Painted in the same transformative year as The Great Masturbator, The Enigma of Desire is another key work from Dalí's Surrealist breakthrough. The painting's original title—My Mother, My Mother, My Mother—was changed before exhibition, though it reveals the work's core subject: Dalí's complex, ambivalent feelings about his late mother, who died of uterine cancer when he was a teenager of fifteen.\n\nThe central form is a vast, undulating mass of flesh-colored rock that fills much of the canvas. Its surface is honeycombed with irregular cavities, each inscribed with the words 'ma mère'—my mother—in Dalí's own handwriting. Within and around these chambers, strange figures and forms proliferate: a lion's head, an insect, the artist's own miniaturized likeness, and melting organic forms.\n\nThe amorphous, cavelike central mass can be read as a psychological landscape—a maternal body riddled with the chambers of memory, desire, and grief. The rock formations are again based on Cap de Creus, the dramatic headland at the northeastern tip of Catalonia, which functioned for Dalí as a kind of externalized unconscious landscape. The coastline, with its eroded, anthropomorphic rock forms, appears throughout his Surrealist work.\n\nThis painting marks Dalí's full arrival as a Surrealist, demonstrating his ability to translate the workings of the unconscious mind into precisely rendered, hallucinatory imagery. It is one of the jewels of the Reina Sofía's collection.",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/a/a4/Salvador_Dal%C3%AD%2C_1929%2C_The_Enigma_of_Desire_-_My_Mother%2C_My_Mother%2C_My_Mother%2C_oil_on_canvas%2C_110_x_150.7_cm.jpg"
     },
     {
       "id": "dali-invisible-man-1929",
@@ -192,8 +294,16 @@
       "medium": "Oil on canvas",
       "type": "painting",
       "highlight": false,
-      "tags": ["Dalí", "Surrealism", "double image", "optical illusion", "paranoia", "ambiguity"],
-      "audioDescription": "The Invisible Man is one of Dalí's most virtuosic explorations of the double image—the technique he called the paranoiac-critical method, in which a single image can be read in two or more entirely different ways simultaneously.\n\nAt first glance the canvas presents a complex Surrealist landscape: classical architecture, floating spheres, draped figures, a nude seated in the lower left. Look longer, and a second reading emerges—the entire composition coheres into a massive seated figure whose body is formed from the aggregation of all these separate elements. Sky and architecture become skin and cloth; separate objects merge into limbs; the whole panorama reorganizes itself into a human form.\n\nDalí worked on this painting obsessively over several years, beginning in 1929 and not finishing until 1933. The extended gestation reflects both the technical complexity of the dual-image system and Dalí's deep investment in the psychological concept it embodies. The invisible man—present but unseen, legible only to those who know how to look—was for Dalí a metaphor for the unconscious itself: structuring our experience from below the threshold of awareness.\n\nThe painting belongs to a series Dalí made in this period exploring paranoia as a form of heightened perception rather than pathology: a way of reading hidden meanings and secret structures in the visible world that others pass by without seeing."
+      "tags": [
+        "Dalí",
+        "Surrealism",
+        "double image",
+        "optical illusion",
+        "paranoia",
+        "ambiguity"
+      ],
+      "audioDescription": "The Invisible Man is one of Dalí's most virtuosic explorations of the double image—the technique he called the paranoiac-critical method, in which a single image can be read in two or more entirely different ways simultaneously.\n\nAt first glance the canvas presents a complex Surrealist landscape: classical architecture, floating spheres, draped figures, a nude seated in the lower left. Look longer, and a second reading emerges—the entire composition coheres into a massive seated figure whose body is formed from the aggregation of all these separate elements. Sky and architecture become skin and cloth; separate objects merge into limbs; the whole panorama reorganizes itself into a human form.\n\nDalí worked on this painting obsessively over several years, beginning in 1929 and not finishing until 1933. The extended gestation reflects both the technical complexity of the dual-image system and Dalí's deep investment in the psychological concept it embodies. The invisible man—present but unseen, legible only to those who know how to look—was for Dalí a metaphor for the unconscious itself: structuring our experience from below the threshold of awareness.\n\nThe painting belongs to a series Dalí made in this period exploring paranoia as a form of heightened perception rather than pathology: a way of reading hidden meanings and secret structures in the visible world that others pass by without seeing.",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/f/fa/Dal%C3%AD_The_Invisible_Man.jpg"
     },
     {
       "id": "miro-painting-1927",
@@ -206,8 +316,16 @@
       "medium": "Oil on canvas",
       "type": "painting",
       "highlight": false,
-      "tags": ["Miró", "Catalan", "abstract", "biomorphic", "Surrealism", "Paris"],
-      "audioDescription": "By 1927, Joan Miró had already undergone the radical transformation of his visual language that would make him one of the most original painters of the twentieth century. This work belongs to a crucial transitional period when Miró was developing the system of floating signs, biomorphic forms, and pure color fields that would define his mature style.\n\nThe canvas presents an almost entirely empty field—a vast expanse of neutral tone—against which a small constellation of simplified marks and forms is distributed. The forms are organic, suggestive of living things without depicting any specific organism: they might be microbes seen under a microscope, strange sea creatures, abstract characters from an invented script, or the figures of a dream.\n\nMiró described working in a state between waking and dreaming, allowing his hand to move with minimal conscious control while maintaining an acute sensitivity to compositional balance. He was deeply influenced by the Surrealist movement's interest in automatism—the technique of drawing or painting without premeditation to bypass conscious censorship and access unconscious imagery—though his results always retained a formal precision and visual poetry that distinguished them from pure automatism.\n\nThe radical reduction of this canvas—so little given so much space—demands a different kind of looking than most paintings. Stand here quietly and let the forms speak on their own terms. Miró believed that a painting must be fertile—that it must give birth to a world. In this modest constellation of marks, he makes good on that claim."
+      "tags": [
+        "Miró",
+        "Catalan",
+        "abstract",
+        "biomorphic",
+        "Surrealism",
+        "Paris"
+      ],
+      "audioDescription": "By 1927, Joan Miró had already undergone the radical transformation of his visual language that would make him one of the most original painters of the twentieth century. This work belongs to a crucial transitional period when Miró was developing the system of floating signs, biomorphic forms, and pure color fields that would define his mature style.\n\nThe canvas presents an almost entirely empty field—a vast expanse of neutral tone—against which a small constellation of simplified marks and forms is distributed. The forms are organic, suggestive of living things without depicting any specific organism: they might be microbes seen under a microscope, strange sea creatures, abstract characters from an invented script, or the figures of a dream.\n\nMiró described working in a state between waking and dreaming, allowing his hand to move with minimal conscious control while maintaining an acute sensitivity to compositional balance. He was deeply influenced by the Surrealist movement's interest in automatism—the technique of drawing or painting without premeditation to bypass conscious censorship and access unconscious imagery—though his results always retained a formal precision and visual poetry that distinguished them from pure automatism.\n\nThe radical reduction of this canvas—so little given so much space—demands a different kind of looking than most paintings. Stand here quietly and let the forms speak on their own terms. Miró believed that a painting must be fertile—that it must give birth to a world. In this modest constellation of marks, he makes good on that claim.",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/2/22/Joan_Mir%C3%B3._Painting._1927.jpg"
     },
     {
       "id": "miro-head-catalan-peasant-1925",
@@ -220,8 +338,16 @@
       "medium": "Oil on canvas",
       "type": "painting",
       "highlight": false,
-      "tags": ["Miró", "Catalan identity", "abstraction", "red cap", "peasant", "political"],
-      "audioDescription": "Head of a Catalan Peasant belongs to a series Miró painted in the mid-1920s that stands among the most radical innovations in modern art. On a vast, luminous field that shifts between warm and cool tones, a few minimal marks describe a head: a red barretina—the traditional Catalan peasant's cap—a single eye represented by a circle or a lash, and an almost imperceptible line suggesting a face.\n\nThe Catalan peasant was for Miró a deeply personal symbol. His family owned a farmhouse in Montroig, in the Tarragona countryside, where Miró spent every summer and which he described as the spiritual center of his life and work. The barretina-wearing farmer represented the rootedness, simplicity, and earthbound dignity of Catalan rural culture—values that Miró cherished against the dizzying cosmopolitanism of Paris, where he was spending his winters.\n\nThe painting was also a political statement. Catalonia under the Primo de Rivera dictatorship was subject to a campaign to suppress its language and culture, making the Catalan peasant a figure of quiet resistance as well as nostalgic affection.\n\nWhat is astonishing is how much expressive charge Miró can pack into so few elements. The vast field of color is not empty—it vibrates with atmospheric presence. The minimal marks that constitute the figure are not sparse—they are precisely sufficient. This is painting reduced to its bare essentials and yet filled with feeling."
+      "tags": [
+        "Miró",
+        "Catalan identity",
+        "abstraction",
+        "red cap",
+        "peasant",
+        "political"
+      ],
+      "audioDescription": "Head of a Catalan Peasant belongs to a series Miró painted in the mid-1920s that stands among the most radical innovations in modern art. On a vast, luminous field that shifts between warm and cool tones, a few minimal marks describe a head: a red barretina—the traditional Catalan peasant's cap—a single eye represented by a circle or a lash, and an almost imperceptible line suggesting a face.\n\nThe Catalan peasant was for Miró a deeply personal symbol. His family owned a farmhouse in Montroig, in the Tarragona countryside, where Miró spent every summer and which he described as the spiritual center of his life and work. The barretina-wearing farmer represented the rootedness, simplicity, and earthbound dignity of Catalan rural culture—values that Miró cherished against the dizzying cosmopolitanism of Paris, where he was spending his winters.\n\nThe painting was also a political statement. Catalonia under the Primo de Rivera dictatorship was subject to a campaign to suppress its language and culture, making the Catalan peasant a figure of quiet resistance as well as nostalgic affection.\n\nWhat is astonishing is how much expressive charge Miró can pack into so few elements. The vast field of color is not empty—it vibrates with atmospheric presence. The minimal marks that constitute the figure are not sparse—they are precisely sufficient. This is painting reduced to its bare essentials and yet filled with feeling.",
+      "imageUrl": null
     },
     {
       "id": "leger-woman-still-life-1921",
@@ -234,8 +360,16 @@
       "medium": "Oil on canvas",
       "type": "painting",
       "highlight": false,
-      "tags": ["Léger", "French", "tubular", "machine aesthetic", "figure", "modern life"],
-      "audioDescription": "Fernand Léger developed one of the most distinctive visual languages in twentieth-century art—a style sometimes called 'tubism' for its characteristic use of rounded, cylindrical, tube-like forms that recall industrial machinery as much as human anatomy.\n\nIn this work, a female figure is built from the same visual vocabulary as the surrounding objects: rounded, polished, smoothly contoured forms that have more in common with mechanical components than with the softness of flesh. The woman and the vase she holds share a visual equivalence—both are objects in the modern world, shaped by the same formal principles.\n\nLéger was fascinated by the industrial age, by factories and machinery, by cinema and advertising. He saw modernity as a genuinely new visual experience that demanded a new visual language, and he developed his tubular forms as a response to the aesthetic of the machine—the lathe, the piston, the gear. Far from being a critique of industrial dehumanization, his paintings celebrate the vitality and energy of the modern world.\n\nLéger's influence on subsequent art—from Pop Art's interest in consumer culture to the sleek surfaces of Photorealism—was enormous. This painting from his mature period shows his machine aesthetic at its most refined and confident: a world in which humanity and technology have merged into a single harmonious visual language."
+      "tags": [
+        "Léger",
+        "French",
+        "tubular",
+        "machine aesthetic",
+        "figure",
+        "modern life"
+      ],
+      "audioDescription": "Fernand Léger developed one of the most distinctive visual languages in twentieth-century art—a style sometimes called 'tubism' for its characteristic use of rounded, cylindrical, tube-like forms that recall industrial machinery as much as human anatomy.\n\nIn this work, a female figure is built from the same visual vocabulary as the surrounding objects: rounded, polished, smoothly contoured forms that have more in common with mechanical components than with the softness of flesh. The woman and the vase she holds share a visual equivalence—both are objects in the modern world, shaped by the same formal principles.\n\nLéger was fascinated by the industrial age, by factories and machinery, by cinema and advertising. He saw modernity as a genuinely new visual experience that demanded a new visual language, and he developed his tubular forms as a response to the aesthetic of the machine—the lathe, the piston, the gear. Far from being a critique of industrial dehumanization, his paintings celebrate the vitality and energy of the modern world.\n\nLéger's influence on subsequent art—from Pop Art's interest in consumer culture to the sleek surfaces of Photorealism—was enormous. This painting from his mature period shows his machine aesthetic at its most refined and confident: a world in which humanity and technology have merged into a single harmonious visual language.",
+      "imageUrl": null
     },
     {
       "id": "calder-mercury-fountain-1937",
@@ -248,8 +382,17 @@
       "medium": "Steel, mercury",
       "type": "sculpture",
       "highlight": true,
-      "tags": ["Calder", "kinetic", "mobile", "Paris 1937", "mercury", "Republican Spain", "must-see"],
-      "audioDescription": "This extraordinary fountain was created by Alexander Calder for the 1937 Spanish Pavilion at the Paris International Exhibition—the same pavilion that housed Picasso's Guernica. Like Guernica, it was a direct political statement in support of the Spanish Republic during the Civil War.\n\nThe fountain uses liquid mercury—the metallic element mined at Almadén in Castile-La Mancha, one of Spain's most important mineral resources. The Nationalist forces had recently taken control of Almadén, cutting off a vital source of Republican revenue, and Calder's fountain was meant to draw international attention to the political significance of this mercury. A black panel at the base originally bore the name 'ALMADEN' in bold letters.\n\nThe mercury flows and splashes across a series of delicately balanced metal elements—abstractly shaped leaves, discs, and rods—creating a kinetic composition that is constantly in motion. The silvery liquid metal moves with an uncanny heaviness and viscosity, forming pools and drips that are utterly unlike water. The overall effect is both playful and strange, like a living sculpture that responds to its own flow.\n\nCalder—the inventor of the mobile, trained as a mechanical engineer—designed the fountain so that the movement of the mercury would keep the elements in perpetual, gentle motion. Standing before it, you are watching one of the most remarkable objects of the twentieth century: a kinetic sculpture, a political statement, and a technical marvel all in one."
+      "tags": [
+        "Calder",
+        "kinetic",
+        "mobile",
+        "Paris 1937",
+        "mercury",
+        "Republican Spain",
+        "must-see"
+      ],
+      "audioDescription": "This extraordinary fountain was created by Alexander Calder for the 1937 Spanish Pavilion at the Paris International Exhibition—the same pavilion that housed Picasso's Guernica. Like Guernica, it was a direct political statement in support of the Spanish Republic during the Civil War.\n\nThe fountain uses liquid mercury—the metallic element mined at Almadén in Castile-La Mancha, one of Spain's most important mineral resources. The Nationalist forces had recently taken control of Almadén, cutting off a vital source of Republican revenue, and Calder's fountain was meant to draw international attention to the political significance of this mercury. A black panel at the base originally bore the name 'ALMADEN' in bold letters.\n\nThe mercury flows and splashes across a series of delicately balanced metal elements—abstractly shaped leaves, discs, and rods—creating a kinetic composition that is constantly in motion. The silvery liquid metal moves with an uncanny heaviness and viscosity, forming pools and drips that are utterly unlike water. The overall effect is both playful and strange, like a living sculpture that responds to its own flow.\n\nCalder—the inventor of the mobile, trained as a mechanical engineer—designed the fountain so that the movement of the mercury would keep the elements in perpetual, gentle motion. Standing before it, you are watching one of the most remarkable objects of the twentieth century: a kinetic sculpture, a political statement, and a technical marvel all in one.",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Alexander_Calder_-_Mercury_Fountain_%281937%29_-_Fundaci%C3%B3_Joan_Mir%C3%B3_-_Barcelona%2C_Spain.jpg/800px-Alexander_Calder_-_Mercury_Fountain_%281937%29_-_Fundaci%C3%B3_Joan_Mir%C3%B3_-_Barcelona%2C_Spain.jpg"
     },
     {
       "id": "dominguez-decalcomania-1936",
@@ -262,8 +405,16 @@
       "medium": "Gouache on paper",
       "type": "painting",
       "highlight": false,
-      "tags": ["Surrealism", "Canary Islands", "automatism", "decalcomania", "texture", "technique"],
-      "audioDescription": "Óscar Domínguez was born in Tenerife in the Canary Islands in 1906 and became one of the most technically inventive figures in the Surrealist movement. He is credited with inventing the technique of decalcomania—the process that gives this work its name and its extraordinary visual character.\n\nDecalcomania involves pressing paint between two surfaces and then pulling them apart while wet, creating rich, unpredictable textures that suggest geological formations, underwater landscapes, forests, or the interiors of the body. The resulting images have the quality of Rorschach inkblots—they invite the viewer to project meanings and see figures, creatures, and landscapes that the process itself has not intentionally created.\n\nAndré Breton immediately recognized the technique's Surrealist potential, describing it as 'the non-figurative use of decalcomania.' The method aligned perfectly with Surrealism's interest in automatism—bypassing conscious control to access the imagery of the unconscious—while producing results of striking visual beauty.\n\nDomínguez later adapted the technique to canvas and oil paint, but the paper works retain a particular freshness and immediacy. Looking at this work, you participate in a kind of active seeing: the more you look, the more you find. This collaborative relationship between image and imagination is precisely what Domínguez and the Surrealists were seeking to create. Domínguez's tragic end—he took his own life in Paris on New Year's Day 1958—makes these works all the more poignant as records of a restless, visionary talent."
+      "tags": [
+        "Surrealism",
+        "Canary Islands",
+        "automatism",
+        "decalcomania",
+        "texture",
+        "technique"
+      ],
+      "audioDescription": "Óscar Domínguez was born in Tenerife in the Canary Islands in 1906 and became one of the most technically inventive figures in the Surrealist movement. He is credited with inventing the technique of decalcomania—the process that gives this work its name and its extraordinary visual character.\n\nDecalcomania involves pressing paint between two surfaces and then pulling them apart while wet, creating rich, unpredictable textures that suggest geological formations, underwater landscapes, forests, or the interiors of the body. The resulting images have the quality of Rorschach inkblots—they invite the viewer to project meanings and see figures, creatures, and landscapes that the process itself has not intentionally created.\n\nAndré Breton immediately recognized the technique's Surrealist potential, describing it as 'the non-figurative use of decalcomania.' The method aligned perfectly with Surrealism's interest in automatism—bypassing conscious control to access the imagery of the unconscious—while producing results of striking visual beauty.\n\nDomínguez later adapted the technique to canvas and oil paint, but the paper works retain a particular freshness and immediacy. Looking at this work, you participate in a kind of active seeing: the more you look, the more you find. This collaborative relationship between image and imagination is precisely what Domínguez and the Surrealists were seeking to create. Domínguez's tragic end—he took his own life in Paris on New Year's Day 1958—makes these works all the more poignant as records of a restless, visionary talent.",
+      "imageUrl": null
     },
     {
       "id": "bacon-head-1949",
@@ -276,8 +427,17 @@
       "medium": "Oil on canvas",
       "type": "painting",
       "highlight": true,
-      "tags": ["Bacon", "British", "existentialism", "distortion", "post-war", "figuration", "anguish"],
-      "audioDescription": "Francis Bacon exploded onto the post-war London art scene with a series of heads and figures that seemed to embody the existential horror of the mid-twentieth century. This work belongs to those early head paintings—images that feel simultaneously like portraits, specimens, and cries of anguish.\n\nThe figure emerges from a dark, undefined space, its features smeared and dissolved as if caught in a moment of violent transformation. The mouth—a recurring obsession for Bacon—is stretched open in what may be a scream, a laugh, or something between the two. The features are legible but distorted: this is a face under pressure, a psyche externalizing its own dissolution.\n\nBacon was deeply influenced by Velázquez's portraits—particularly the Pope Innocent X—by Eisenstein's cinema, by medical textbooks and reproductions of screaming figures. He sought to capture what he called 'the brutality of fact': the raw physical reality of the body as meat, as flesh, as something that suffers and decays, beyond all social pretense.\n\nHis technique involved working rapidly and intuitively, often using rags, brushes, and his own hands to smear and blur paint across the canvas. He destroyed the majority of his works and was famous for refusing to allow mistakes to be corrected: the painting either worked as a whole or it was torn up. This survival is therefore a testament to his own exacting standard.\n\nIn the post-war world of existentialist philosophy and Cold War anxiety, Bacon's heads spoke directly to the age's darkest self-understanding."
+      "tags": [
+        "Bacon",
+        "British",
+        "existentialism",
+        "distortion",
+        "post-war",
+        "figuration",
+        "anguish"
+      ],
+      "audioDescription": "Francis Bacon exploded onto the post-war London art scene with a series of heads and figures that seemed to embody the existential horror of the mid-twentieth century. This work belongs to those early head paintings—images that feel simultaneously like portraits, specimens, and cries of anguish.\n\nThe figure emerges from a dark, undefined space, its features smeared and dissolved as if caught in a moment of violent transformation. The mouth—a recurring obsession for Bacon—is stretched open in what may be a scream, a laugh, or something between the two. The features are legible but distorted: this is a face under pressure, a psyche externalizing its own dissolution.\n\nBacon was deeply influenced by Velázquez's portraits—particularly the Pope Innocent X—by Eisenstein's cinema, by medical textbooks and reproductions of screaming figures. He sought to capture what he called 'the brutality of fact': the raw physical reality of the body as meat, as flesh, as something that suffers and decays, beyond all social pretense.\n\nHis technique involved working rapidly and intuitively, often using rags, brushes, and his own hands to smear and blur paint across the canvas. He destroyed the majority of his works and was famous for refusing to allow mistakes to be corrected: the painting either worked as a whole or it was torn up. This survival is therefore a testament to his own exacting standard.\n\nIn the post-war world of existentialist philosophy and Cold War anxiety, Bacon's heads spoke directly to the age's darkest self-understanding.",
+      "imageUrl": null
     },
     {
       "id": "tapies-large-painting-1958",
@@ -290,8 +450,17 @@
       "medium": "Mixed media on canvas",
       "type": "painting",
       "highlight": true,
-      "tags": ["Tàpies", "Catalan", "informalism", "matter", "Franco", "resistance", "texture"],
-      "audioDescription": "Antoni Tàpies was the most important Spanish artist of the post-war generation, and his work is inseparable from the political context of Franco's dictatorship. Born in Barcelona in 1923, he came of age in the suffocating cultural atmosphere of early Francoism, where avant-garde art was suspect and censored. His mature work became a covert act of resistance—expressing through material itself what could not be said in words.\n\nThis Large Painting belongs to Tàpies's signature mature style: dense, heavily worked surfaces made from mixed media including paint, sand, marble dust, varnish, and various other materials. The result is less a painting than a wall, or a slab of ancient stone—a surface marked by time, bearing the traces of human presence through accumulated scratchings, impressions, and layered deposits.\n\nTàpies spoke of his work in terms of Eastern philosophy as much as Western art. He saw the material of painting—its physical matter—as sacred, worthy of the same reverence we give to precious objects. A canvas covered with the traces of hands and marks could be as profound as a polished gem. He was also deeply influenced by early Romanesque art and by the rough-textured architecture of his native Barcelona.\n\nWhat seems at first like a monochrome field of matter reveals, on closer inspection, a world of subtle marks, impressions, and embedded forms—a meditation on presence, time, and the fundamental dignity of physical existence. Standing before this work, give it time. The longer you look, the more you find."
+      "tags": [
+        "Tàpies",
+        "Catalan",
+        "informalism",
+        "matter",
+        "Franco",
+        "resistance",
+        "texture"
+      ],
+      "audioDescription": "Antoni Tàpies was the most important Spanish artist of the post-war generation, and his work is inseparable from the political context of Franco's dictatorship. Born in Barcelona in 1923, he came of age in the suffocating cultural atmosphere of early Francoism, where avant-garde art was suspect and censored. His mature work became a covert act of resistance—expressing through material itself what could not be said in words.\n\nThis Large Painting belongs to Tàpies's signature mature style: dense, heavily worked surfaces made from mixed media including paint, sand, marble dust, varnish, and various other materials. The result is less a painting than a wall, or a slab of ancient stone—a surface marked by time, bearing the traces of human presence through accumulated scratchings, impressions, and layered deposits.\n\nTàpies spoke of his work in terms of Eastern philosophy as much as Western art. He saw the material of painting—its physical matter—as sacred, worthy of the same reverence we give to precious objects. A canvas covered with the traces of hands and marks could be as profound as a polished gem. He was also deeply influenced by early Romanesque art and by the rough-textured architecture of his native Barcelona.\n\nWhat seems at first like a monochrome field of matter reveals, on closer inspection, a world of subtle marks, impressions, and embedded forms—a meditation on presence, time, and the fundamental dignity of physical existence. Standing before this work, give it time. The longer you look, the more you find.",
+      "imageUrl": null
     },
     {
       "id": "saura-portrait-bardot-1959",
@@ -304,8 +473,17 @@
       "medium": "Oil on canvas",
       "type": "painting",
       "highlight": false,
-      "tags": ["Saura", "Informalism", "portrait", "celebrity", "violence", "Bardot", "obsession"],
-      "audioDescription": "Antonio Saura was one of Spain's most important Informalist painters, and his series of portraits of Brigitte Bardot—painted obsessively throughout 1959—are among the most remarkable works in the Reina Sofía's collection. These are not portraits in any conventional sense: they are psychic eruptions, violent encounters between the painter's brush and the cultural phenomenon of a face.\n\nBardot had become the most famous woman in the world by the late 1950s—a symbol of sensuality, liberated femininity, and the new consumer culture of post-war Europe. For Saura, working under Franco's oppressive regime in Spain while Bardot represented the liberated world beyond the Pyrenees, she became both an object of fascination and a target for a kind of painterly aggression.\n\nIn this work, the face is nearly obliterated—smeared, scraped, pounded into near-abstraction. The features are just barely legible: eyes, perhaps a mouth, the shape of a head. Yet despite, or because of, this violence, the image has a strange magnetic power. The marks are urgent, compulsive, driven.\n\nSaura painted dozens of Bardot portraits in this period—he had never met her and worked from magazine photographs. He described the process as 'an act of love and destruction simultaneously.' That paradox captures something essential about how modern fame transforms a person into a screen onto which others project their most intense desires and resentments. These paintings are, in that sense, as much about the condition of modern celebrity as about Bardot herself."
+      "tags": [
+        "Saura",
+        "Informalism",
+        "portrait",
+        "celebrity",
+        "violence",
+        "Bardot",
+        "obsession"
+      ],
+      "audioDescription": "Antonio Saura was one of Spain's most important Informalist painters, and his series of portraits of Brigitte Bardot—painted obsessively throughout 1959—are among the most remarkable works in the Reina Sofía's collection. These are not portraits in any conventional sense: they are psychic eruptions, violent encounters between the painter's brush and the cultural phenomenon of a face.\n\nBardot had become the most famous woman in the world by the late 1950s—a symbol of sensuality, liberated femininity, and the new consumer culture of post-war Europe. For Saura, working under Franco's oppressive regime in Spain while Bardot represented the liberated world beyond the Pyrenees, she became both an object of fascination and a target for a kind of painterly aggression.\n\nIn this work, the face is nearly obliterated—smeared, scraped, pounded into near-abstraction. The features are just barely legible: eyes, perhaps a mouth, the shape of a head. Yet despite, or because of, this violence, the image has a strange magnetic power. The marks are urgent, compulsive, driven.\n\nSaura painted dozens of Bardot portraits in this period—he had never met her and worked from magazine photographs. He described the process as 'an act of love and destruction simultaneously.' That paradox captures something essential about how modern fame transforms a person into a screen onto which others project their most intense desires and resentments. These paintings are, in that sense, as much about the condition of modern celebrity as about Bardot herself.",
+      "imageUrl": null
     },
     {
       "id": "millares-homunculus-1959",
@@ -318,8 +496,17 @@
       "medium": "Mixed media on burlap",
       "type": "painting",
       "highlight": false,
-      "tags": ["Millares", "Canary Islands", "El Paso", "violence", "burlap", "raw material", "body"],
-      "audioDescription": "Manolo Millares was born in Las Palmas de Gran Canaria in 1926 and became one of the founding members of the El Paso group, the collective of Spanish Informalist artists who brought abstract expressionism to Spain in the late 1950s. His work is among the most viscerally powerful in the Reina Sofía's collection.\n\nMillares developed a uniquely disturbing artistic vocabulary centered on burlap—rough sacking cloth—that he slashed, burned, knotted, and sutured to create surfaces that evoke bandaged wounds, burial shrouds, and primitive figurines simultaneously. The homunculus of the title refers to the tiny human figure that alchemists believed could be created artificially: a miniature man, a reduced and pathetic embodiment of humanity.\n\nIn this work, the burlap is torn and folded into a roughly anthropomorphic form that hangs on the canvas like a bandaged body or a crucified figure. The black paint pooled in the wounds and tears of the cloth creates a sense of dried blood, of suffering matter. The materiality is deeply physical—you feel the texture, the violence done to the fabric, the labor of tearing and binding.\n\nWorking under Franco's dictatorship, Millares could not be directly political, but his figures—these flayed, bound, tortured homunculi—carry an unmistakable charge of anguish that resonated powerfully with Spanish audiences living under repression. Millares died young of lung cancer in 1972, just three years before Franco's death. He never saw the democracy he had longed for."
+      "tags": [
+        "Millares",
+        "Canary Islands",
+        "El Paso",
+        "violence",
+        "burlap",
+        "raw material",
+        "body"
+      ],
+      "audioDescription": "Manolo Millares was born in Las Palmas de Gran Canaria in 1926 and became one of the founding members of the El Paso group, the collective of Spanish Informalist artists who brought abstract expressionism to Spain in the late 1950s. His work is among the most viscerally powerful in the Reina Sofía's collection.\n\nMillares developed a uniquely disturbing artistic vocabulary centered on burlap—rough sacking cloth—that he slashed, burned, knotted, and sutured to create surfaces that evoke bandaged wounds, burial shrouds, and primitive figurines simultaneously. The homunculus of the title refers to the tiny human figure that alchemists believed could be created artificially: a miniature man, a reduced and pathetic embodiment of humanity.\n\nIn this work, the burlap is torn and folded into a roughly anthropomorphic form that hangs on the canvas like a bandaged body or a crucified figure. The black paint pooled in the wounds and tears of the cloth creates a sense of dried blood, of suffering matter. The materiality is deeply physical—you feel the texture, the violence done to the fabric, the labor of tearing and binding.\n\nWorking under Franco's dictatorship, Millares could not be directly political, but his figures—these flayed, bound, tortured homunculi—carry an unmistakable charge of anguish that resonated powerfully with Spanish audiences living under repression. Millares died young of lung cancer in 1972, just three years before Franco's death. He never saw the democracy he had longed for.",
+      "imageUrl": null
     },
     {
       "id": "palazuelo-noche-clara-1953",
@@ -332,8 +519,16 @@
       "medium": "Oil on canvas",
       "type": "painting",
       "highlight": false,
-      "tags": ["Palazuelo", "Spanish", "geometric abstraction", "lyrical", "night", "Paris"],
-      "audioDescription": "Pablo Palazuelo was Madrid's most distinctive contribution to post-war European abstraction. Born in 1916, he studied architecture before moving to Paris in the 1940s, where he came under the influence of both Paul Klee and the geometric abstractions of the Constructivist tradition. His work synthesizes these influences into something entirely his own: a quietly visionary art in which geometric forms seem to carry spiritual or metaphysical weight.\n\nNoche Clara—Clear Night—belongs to his work of the early 1950s, a period when he was developing the vocabulary of angular, interpenetrating forms that would remain central to his practice for the rest of his life. The forms here—dark angular planes intersecting and overlapping against a ground that glows with interior light—suggest both geological strata and the crystalline structure of minerals, as if we are seeing the secret geometry beneath the visible surface of the world.\n\nPalazuelo was deeply interested in the relationship between geometry and nature. He saw mathematical forms not as abstractions invented by the human mind but as structures discovered in the natural world—the geometry of crystals, of waves, of growth. His paintings are meditations on this idea: an attempt to make visible the invisible order that underlies appearances.\n\nThe title 'Clear Night' suggests both the clarity of astronomical space and the lucidity of a certain quality of perception. Looking at this work, you may find that its forms begin to seem not painted but revealed—as if Palazuelo has simply made visible something that was always there."
+      "tags": [
+        "Palazuelo",
+        "Spanish",
+        "geometric abstraction",
+        "lyrical",
+        "night",
+        "Paris"
+      ],
+      "audioDescription": "Pablo Palazuelo was Madrid's most distinctive contribution to post-war European abstraction. Born in 1916, he studied architecture before moving to Paris in the 1940s, where he came under the influence of both Paul Klee and the geometric abstractions of the Constructivist tradition. His work synthesizes these influences into something entirely his own: a quietly visionary art in which geometric forms seem to carry spiritual or metaphysical weight.\n\nNoche Clara—Clear Night—belongs to his work of the early 1950s, a period when he was developing the vocabulary of angular, interpenetrating forms that would remain central to his practice for the rest of his life. The forms here—dark angular planes intersecting and overlapping against a ground that glows with interior light—suggest both geological strata and the crystalline structure of minerals, as if we are seeing the secret geometry beneath the visible surface of the world.\n\nPalazuelo was deeply interested in the relationship between geometry and nature. He saw mathematical forms not as abstractions invented by the human mind but as structures discovered in the natural world—the geometry of crystals, of waves, of growth. His paintings are meditations on this idea: an attempt to make visible the invisible order that underlies appearances.\n\nThe title 'Clear Night' suggests both the clarity of astronomical space and the lucidity of a certain quality of perception. Looking at this work, you may find that its forms begin to seem not painted but revealed—as if Palazuelo has simply made visible something that was always there.",
+      "imageUrl": null
     },
     {
       "id": "oteiza-metaphysical-box-1958",
@@ -346,8 +541,17 @@
       "medium": "Corten steel",
       "type": "sculpture",
       "highlight": true,
-      "tags": ["Oteiza", "Basque", "sculpture", "void", "spatial", "geometric", "cromlech"],
-      "audioDescription": "Jorge Oteiza was the dominant figure in Basque sculpture in the post-war period, and his influence on Eduardo Chillida—with whom he had a complex and sometimes contentious relationship—was profound. Born in Orio, Guipúzcoa, in 1908, Oteiza lived and worked in South America for many years before returning to Spain, bringing with him a synthesis of pre-Columbian art and European modernism that was entirely original.\n\nThe Metaphysical Box belongs to Oteiza's experimental units series of the late 1950s—a body of work in which he systematically explored the activation of space through the removal of matter from geometric forms. This work is built from steel units that define a cubic form without filling it completely: the box is suggested more by what surrounds and encloses it than by what materially composes it.\n\nOteiza's thinking was deeply philosophical. He was fascinated by the Basque cromlech—the ancient stone circle—as a spatial form in which the void at the center is more important than the surrounding stones. He wanted sculpture to achieve what he called 'spatial disoccupation': to clear and activate space rather than simply to occupy it.\n\nIn 1959, Oteiza abruptly stopped making sculpture, declaring that he had resolved all the questions he had set himself to explore. He turned instead to poetry, politics, and theoretical writing about Basque culture. This work is therefore part of a uniquely finite sculptural achievement: a body of work with a definite end, after which silence became the most radical gesture of all."
+      "tags": [
+        "Oteiza",
+        "Basque",
+        "sculpture",
+        "void",
+        "spatial",
+        "geometric",
+        "cromlech"
+      ],
+      "audioDescription": "Jorge Oteiza was the dominant figure in Basque sculpture in the post-war period, and his influence on Eduardo Chillida—with whom he had a complex and sometimes contentious relationship—was profound. Born in Orio, Guipúzcoa, in 1908, Oteiza lived and worked in South America for many years before returning to Spain, bringing with him a synthesis of pre-Columbian art and European modernism that was entirely original.\n\nThe Metaphysical Box belongs to Oteiza's experimental units series of the late 1950s—a body of work in which he systematically explored the activation of space through the removal of matter from geometric forms. This work is built from steel units that define a cubic form without filling it completely: the box is suggested more by what surrounds and encloses it than by what materially composes it.\n\nOteiza's thinking was deeply philosophical. He was fascinated by the Basque cromlech—the ancient stone circle—as a spatial form in which the void at the center is more important than the surrounding stones. He wanted sculpture to achieve what he called 'spatial disoccupation': to clear and activate space rather than simply to occupy it.\n\nIn 1959, Oteiza abruptly stopped making sculpture, declaring that he had resolved all the questions he had set himself to explore. He turned instead to poetry, politics, and theoretical writing about Basque culture. This work is therefore part of a uniquely finite sculptural achievement: a body of work with a definite end, after which silence became the most radical gesture of all.",
+      "imageUrl": null
     },
     {
       "id": "chillida-modulation-space-1963",
@@ -360,8 +564,17 @@
       "medium": "Steel",
       "type": "sculpture",
       "highlight": true,
-      "tags": ["Chillida", "Basque", "sculpture", "steel", "void", "space", "iron tradition"],
-      "audioDescription": "Eduardo Chillida is widely regarded as the greatest Spanish sculptor of the twentieth century. Born in San Sebastián in 1924, he initially trained as an architect before devoting himself to sculpture, and the structural logic of architecture—weight, balance, tension, void—runs through all his work.\n\nThis sculpture belongs to Chillida's mature steel work, in which massive geometric forms are locked together in configurations of extraordinary formal tension. The work speaks directly to his core preoccupation: the relationship between matter and void, between the filled form and the empty space around and within it.\n\nLook carefully at how the heavy steel elements reach toward each other without quite touching, creating negative spaces—voids—that are as important as the solid material itself. Chillida said he was most interested in sculpting emptiness, using material to define space rather than simply to occupy it. 'What I do,' he once said, 'is contain the wind.'\n\nChillida's work was shaped by the Basque cultural landscape—the granite mountains, the ancient iron-working tradition, the experience of the sea. He created some of the most important monumental sculptures in Spain, including the Wind Combs on the San Sebastián coast, where three steel forms reach out from the rocks toward the Atlantic surf like the fingers of the earth itself.\n\nStanding before this work, notice that the sculpture seems to breathe. The voids between the forms are not absences but active presences—spaces charged with energy by the steel that defines them. Chillida understood that what is not there is as important as what is."
+      "tags": [
+        "Chillida",
+        "Basque",
+        "sculpture",
+        "steel",
+        "void",
+        "space",
+        "iron tradition"
+      ],
+      "audioDescription": "Eduardo Chillida is widely regarded as the greatest Spanish sculptor of the twentieth century. Born in San Sebastián in 1924, he initially trained as an architect before devoting himself to sculpture, and the structural logic of architecture—weight, balance, tension, void—runs through all his work.\n\nThis sculpture belongs to Chillida's mature steel work, in which massive geometric forms are locked together in configurations of extraordinary formal tension. The work speaks directly to his core preoccupation: the relationship between matter and void, between the filled form and the empty space around and within it.\n\nLook carefully at how the heavy steel elements reach toward each other without quite touching, creating negative spaces—voids—that are as important as the solid material itself. Chillida said he was most interested in sculpting emptiness, using material to define space rather than simply to occupy it. 'What I do,' he once said, 'is contain the wind.'\n\nChillida's work was shaped by the Basque cultural landscape—the granite mountains, the ancient iron-working tradition, the experience of the sea. He created some of the most important monumental sculptures in Spain, including the Wind Combs on the San Sebastián coast, where three steel forms reach out from the rocks toward the Atlantic surf like the fingers of the earth itself.\n\nStanding before this work, notice that the sculpture seems to breathe. The voids between the forms are not absences but active presences—spaces charged with energy by the steel that defines them. Chillida understood that what is not there is as important as what is.",
+      "imageUrl": null
     },
     {
       "id": "fontana-spatial-concept-waiting-1960",
@@ -374,8 +587,17 @@
       "medium": "Water-based paint on canvas",
       "type": "painting",
       "highlight": false,
-      "tags": ["Fontana", "Italian", "cut", "monochrome", "Spazialismo", "conceptual", "void"],
-      "audioDescription": "Lucio Fontana's canvases with their precise single cuts have become some of the most iconic images in twentieth-century art. This work belongs to his Tagli series—Cuts—begun in 1958, in which Fontana slashed his monochromatic canvases with a sharp blade to create openings that pierce through the picture plane into the space behind.\n\nThe gesture appears simple—even violent or destructive—but it is in fact a profound philosophical statement about the nature of art. Fontana titled these works 'Spatial Concepts' because the cut was a gesture that moved beyond painting into actual space. By cutting through the canvas, he broke the barrier between the image and the world, between representation and reality.\n\nFontana was born in Rosario, Argentina, to Italian parents, trained as a sculptor in Milan, and developed his radical ideas after the Second World War. His 1946 'White Manifesto' called for a new art that incorporated time, space, and movement—anticipating many of the key concerns of Conceptual art, Performance art, and Installation art by more than a decade.\n\nStand close to this work. The cut is not jagged but precise; the canvas edges are folded back slightly to reveal a dark void behind. It is simultaneously a wound and a portal—a moment of transformation that invites you to think about what lies beyond the surface of things. Fontana chose the word 'waiting' for this series: it describes the gesture, the aperture, and the viewer's experience all at once—the suspension of a moment before the unknown."
+      "tags": [
+        "Fontana",
+        "Italian",
+        "cut",
+        "monochrome",
+        "Spazialismo",
+        "conceptual",
+        "void"
+      ],
+      "audioDescription": "Lucio Fontana's canvases with their precise single cuts have become some of the most iconic images in twentieth-century art. This work belongs to his Tagli series—Cuts—begun in 1958, in which Fontana slashed his monochromatic canvases with a sharp blade to create openings that pierce through the picture plane into the space behind.\n\nThe gesture appears simple—even violent or destructive—but it is in fact a profound philosophical statement about the nature of art. Fontana titled these works 'Spatial Concepts' because the cut was a gesture that moved beyond painting into actual space. By cutting through the canvas, he broke the barrier between the image and the world, between representation and reality.\n\nFontana was born in Rosario, Argentina, to Italian parents, trained as a sculptor in Milan, and developed his radical ideas after the Second World War. His 1946 'White Manifesto' called for a new art that incorporated time, space, and movement—anticipating many of the key concerns of Conceptual art, Performance art, and Installation art by more than a decade.\n\nStand close to this work. The cut is not jagged but precise; the canvas edges are folded back slightly to reveal a dark void behind. It is simultaneously a wound and a portal—a moment of transformation that invites you to think about what lies beyond the surface of things. Fontana chose the word 'waiting' for this series: it describes the gesture, the aperture, and the viewer's experience all at once—the suspension of a moment before the unknown.",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/7/7e/Lucio_Fontana%2C_Spatial_Concept_%27Waiting%27%2C_1960%2C_Tate.jpg"
     },
     {
       "id": "klein-blue-monochrome-1960",
@@ -388,8 +610,17 @@
       "medium": "Dry pigment and synthetic resin on canvas on board",
       "type": "painting",
       "highlight": false,
-      "tags": ["Klein", "French", "IKB", "monochrome", "blue", "immaterial", "absolute"],
-      "audioDescription": "Yves Klein's blue monochromes are among the most radical gestures in twentieth-century art. In 1957, Klein developed his own patented color—International Klein Blue, or IKB—an ultramarine of exceptional depth and luminosity, mixed with a special synthetic resin that preserved the powdery intensity of the dry pigment when the paint dried. He then created a series of canvases covered entirely with this blue.\n\nThe philosophical ambition behind these works was enormous. Klein wanted to paint the absolute—to capture something beyond representation, beyond individual expression, beyond even color as decoration. Blue, for Klein, was the color of the infinite: of the sky, of the sea, of spiritual depth. By filling the canvas entirely with blue—with no figure, no object, no compositional arrangement—he sought to offer the viewer a direct experience of the immaterial.\n\nStanding before this work, you may find that it does something unexpected: the depth of the color seems to recede, to open up, to become a kind of space rather than a surface. Klein reported that visitors would weep before his blue monochromes, and whether or not that was rhetorical exaggeration, there is something genuinely uncanny about an encounter with pure, unmediated color of this intensity.\n\nKlein's short, extraordinary career—he died of a heart attack at thirty-four in 1962—produced works that still feel radically contemporary. These monochromes ask the most fundamental questions about what painting can be, and what it means to look at color for its own sake rather than as a vehicle for something else."
+      "tags": [
+        "Klein",
+        "French",
+        "IKB",
+        "monochrome",
+        "blue",
+        "immaterial",
+        "absolute"
+      ],
+      "audioDescription": "Yves Klein's blue monochromes are among the most radical gestures in twentieth-century art. In 1957, Klein developed his own patented color—International Klein Blue, or IKB—an ultramarine of exceptional depth and luminosity, mixed with a special synthetic resin that preserved the powdery intensity of the dry pigment when the paint dried. He then created a series of canvases covered entirely with this blue.\n\nThe philosophical ambition behind these works was enormous. Klein wanted to paint the absolute—to capture something beyond representation, beyond individual expression, beyond even color as decoration. Blue, for Klein, was the color of the infinite: of the sky, of the sea, of spiritual depth. By filling the canvas entirely with blue—with no figure, no object, no compositional arrangement—he sought to offer the viewer a direct experience of the immaterial.\n\nStanding before this work, you may find that it does something unexpected: the depth of the color seems to recede, to open up, to become a kind of space rather than a surface. Klein reported that visitors would weep before his blue monochromes, and whether or not that was rhetorical exaggeration, there is something genuinely uncanny about an encounter with pure, unmediated color of this intensity.\n\nKlein's short, extraordinary career—he died of a heart attack at thirty-four in 1962—produced works that still feel radically contemporary. These monochromes ask the most fundamental questions about what painting can be, and what it means to look at color for its own sake rather than as a vehicle for something else.",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/c/c0/Yves_Klein_Blue_Monochrome.jpg"
     },
     {
       "id": "lam-composition-1950",
@@ -402,8 +633,18 @@
       "medium": "Oil on canvas",
       "type": "painting",
       "highlight": false,
-      "tags": ["Lam", "Cuban", "Afro-Cuban", "hybrid", "Santería", "Cubism", "Surrealism", "Caribbean"],
-      "audioDescription": "Wifredo Lam was one of the twentieth century's most extraordinary cultural crossroads. Born in Cuba in 1902 to a Chinese father and a mother of African and Spanish descent, he trained in Havana and Madrid before moving to Paris in 1938. There he became a close friend of Picasso, who was immediately struck by his work, and was drawn into the Surrealist circle around André Breton.\n\nThis work from Lam's mature period brings together the three great traditions that shaped his art: Cubism, visible in the fractured, multi-perspective forms; Surrealism, in the biomorphic and dreamlike imagery; and the Afro-Cuban religious traditions of his homeland—particularly Santería—in the hybrid figures that combine human, animal, and spiritual forms drawn from Yoruba mythology.\n\nThe figures that inhabit Lam's paintings are neither human nor animal. They are hybrid beings—part woman, part horse, part plant, part deity—that participate in a visual world rooted in Caribbean religious practice and colonial history. Lam described his project as making visible the spiritual forces of his Caribbean world: forces that European modernism had overlooked or exoticized without understanding.\n\nHis art was both an act of cultural reclamation and a genuine aesthetic breakthrough. He did not simply apply European modernism to Caribbean content; he transformed modernism from within by introducing visual knowledge and spiritual traditions that European art had no access to. The Reina Sofía's Lam collection offers a vital perspective on how modernism looked from beyond Europe—not as something imported from outside, but as something enriched and challenged from within."
+      "tags": [
+        "Lam",
+        "Cuban",
+        "Afro-Cuban",
+        "hybrid",
+        "Santería",
+        "Cubism",
+        "Surrealism",
+        "Caribbean"
+      ],
+      "audioDescription": "Wifredo Lam was one of the twentieth century's most extraordinary cultural crossroads. Born in Cuba in 1902 to a Chinese father and a mother of African and Spanish descent, he trained in Havana and Madrid before moving to Paris in 1938. There he became a close friend of Picasso, who was immediately struck by his work, and was drawn into the Surrealist circle around André Breton.\n\nThis work from Lam's mature period brings together the three great traditions that shaped his art: Cubism, visible in the fractured, multi-perspective forms; Surrealism, in the biomorphic and dreamlike imagery; and the Afro-Cuban religious traditions of his homeland—particularly Santería—in the hybrid figures that combine human, animal, and spiritual forms drawn from Yoruba mythology.\n\nThe figures that inhabit Lam's paintings are neither human nor animal. They are hybrid beings—part woman, part horse, part plant, part deity—that participate in a visual world rooted in Caribbean religious practice and colonial history. Lam described his project as making visible the spiritual forces of his Caribbean world: forces that European modernism had overlooked or exoticized without understanding.\n\nHis art was both an act of cultural reclamation and a genuine aesthetic breakthrough. He did not simply apply European modernism to Caribbean content; he transformed modernism from within by introducing visual knowledge and spiritual traditions that European art had no access to. The Reina Sofía's Lam collection offers a vital perspective on how modernism looked from beyond Europe—not as something imported from outside, but as something enriched and challenged from within.",
+      "imageUrl": null
     },
     {
       "id": "canogar-painting-1960",
@@ -416,8 +657,16 @@
       "medium": "Oil on canvas",
       "type": "painting",
       "highlight": false,
-      "tags": ["Canogar", "El Paso", "Informalism", "gesture", "abstraction", "Spanish post-war"],
-      "audioDescription": "Rafael Canogar was one of the founding members of El Paso, the influential group of Spanish Informalist artists whose 1957 manifesto declared a new direction for Spanish art—away from the tired academicism favored by the Franco regime and toward the raw gestural abstraction of the international avant-garde.\n\nBorn in Toledo in 1935, Canogar was the youngest member of El Paso and became one of its most internationally recognized voices. This work from 1960 belongs to his Informalist phase, before his later shift toward politically engaged figuration in the 1960s.\n\nThe canvas is built up from dense, urgent layers of paint—black and dark earth tones predominate, with passages of raw sienna and ochre breaking through. The marks are gestural and immediate, recording the physical movement of the painter's arm across the surface. There is nothing decorative about this painting: it has the quality of necessity, of marks that could not be other than they are.\n\nContextually, it is important to understand that in Franco's Spain, abstract painting was not simply an aesthetic choice. It was a refusal—a refusal of the realist propaganda that the regime promoted, a claim for a space of freedom and internationalism within a culture of repression. The gestural abstraction of El Paso was, in this context, a political as well as an artistic act. Canogar and his colleagues were painting in dialogue with New York and Paris while living in a Spain that official culture wanted to keep sealed from the outside world."
+      "tags": [
+        "Canogar",
+        "El Paso",
+        "Informalism",
+        "gesture",
+        "abstraction",
+        "Spanish post-war"
+      ],
+      "audioDescription": "Rafael Canogar was one of the founding members of El Paso, the influential group of Spanish Informalist artists whose 1957 manifesto declared a new direction for Spanish art—away from the tired academicism favored by the Franco regime and toward the raw gestural abstraction of the international avant-garde.\n\nBorn in Toledo in 1935, Canogar was the youngest member of El Paso and became one of its most internationally recognized voices. This work from 1960 belongs to his Informalist phase, before his later shift toward politically engaged figuration in the 1960s.\n\nThe canvas is built up from dense, urgent layers of paint—black and dark earth tones predominate, with passages of raw sienna and ochre breaking through. The marks are gestural and immediate, recording the physical movement of the painter's arm across the surface. There is nothing decorative about this painting: it has the quality of necessity, of marks that could not be other than they are.\n\nContextually, it is important to understand that in Franco's Spain, abstract painting was not simply an aesthetic choice. It was a refusal—a refusal of the realist propaganda that the regime promoted, a claim for a space of freedom and internationalism within a culture of repression. The gestural abstraction of El Paso was, in this context, a political as well as an artistic act. Canogar and his colleagues were painting in dialogue with New York and Paris while living in a Spain that official culture wanted to keep sealed from the outside world.",
+      "imageUrl": null
     },
     {
       "id": "equipo-cronica-museum-1971",
@@ -430,8 +679,17 @@
       "medium": "Acrylic on canvas",
       "type": "painting",
       "highlight": false,
-      "tags": ["Equipo Crónica", "Valencian", "Pop Art", "political", "irony", "mass media", "pastiche"],
-      "audioDescription": "Equipo Crónica was a Valencian artistic duo—Rafael Solbes and Manolo Valdés—who worked together from 1964 until Solbes's death in 1981. Their work represents the most significant development of Pop Art within Spain, though it differs from American Pop in being more overtly critical and politically charged.\n\nIn this work, the duo stages an encounter between the imagery of the art-historical canon and the visual language of modern mass media. Figures drawn from the great paintings of Velázquez, Goya, or other masters are transposed into comic-strip or advertising contexts, or placed in absurd juxtapositions that drain their original dignity and replace it with something ironic and unsettling.\n\nEquipo Crónica was working in Valencia under Franco's dictatorship, and their use of popular imagery—cartoon strips, advertising, television—was simultaneously an engagement with international artistic trends and a covert critique of the mass media's role in producing passive, uncritical consumers. By mixing high art and popular culture, they exposed the ideological work that both perform.\n\nTheir irony is light but pointed: they are not angry propagandists but wry observers of a culture that uses images—whether the masterpieces of the Prado or the photographs of consumer goods—to maintain social order. This painting invites you to think about why we go to museums, what we expect to find there, and who decides which images deserve to be called art."
+      "tags": [
+        "Equipo Crónica",
+        "Valencian",
+        "Pop Art",
+        "political",
+        "irony",
+        "mass media",
+        "pastiche"
+      ],
+      "audioDescription": "Equipo Crónica was a Valencian artistic duo—Rafael Solbes and Manolo Valdés—who worked together from 1964 until Solbes's death in 1981. Their work represents the most significant development of Pop Art within Spain, though it differs from American Pop in being more overtly critical and politically charged.\n\nIn this work, the duo stages an encounter between the imagery of the art-historical canon and the visual language of modern mass media. Figures drawn from the great paintings of Velázquez, Goya, or other masters are transposed into comic-strip or advertising contexts, or placed in absurd juxtapositions that drain their original dignity and replace it with something ironic and unsettling.\n\nEquipo Crónica was working in Valencia under Franco's dictatorship, and their use of popular imagery—cartoon strips, advertising, television—was simultaneously an engagement with international artistic trends and a covert critique of the mass media's role in producing passive, uncritical consumers. By mixing high art and popular culture, they exposed the ideological work that both perform.\n\nTheir irony is light but pointed: they are not angry propagandists but wry observers of a culture that uses images—whether the masterpieces of the Prado or the photographs of consumer goods—to maintain social order. This painting invites you to think about why we go to museums, what we expect to find there, and who decides which images deserve to be called art.",
+      "imageUrl": null
     },
     {
       "id": "picasso-woman-crying-1937",
@@ -444,8 +702,16 @@
       "medium": "Oil on canvas",
       "type": "painting",
       "highlight": false,
-      "tags": ["Picasso", "Guernica studies", "Dora Maar", "grief", "Civil War", "women"],
-      "audioDescription": "This Weeping Woman is one of a series Picasso painted in the months following the completion of Guernica, as he continued to work through the imagery and emotional charge of that great canvas. The model is Dora Maar—the photographer and artist who was Picasso's companion from 1936 to 1944 and who photographed the entire creation of Guernica in his Paris studio.\n\nDora Maar appears throughout the Guernica studies as the weeping mother—the figure who holds her dead child in the lower left corner of the great painting. In these later independent canvases, Picasso distills that single figure into concentrated portraits of grief that stand as works in their own right.\n\nThe face in this painting is fractured and multi-perspectival in the Cubist tradition: the features are shown simultaneously from different angles, the eyes rendered as sharp angular planes, the mouth open in a cry or sob that seems to rearrange the whole face. Tears are schematized into angular geometric forms that become almost decorative, as if sorrow has been crystallized into a pattern.\n\nPicasso described Dora Maar as 'the weeping woman' and said that he always painted her in tears. Whatever the personal dynamics of their relationship, these works transformed a private grief into one of the most powerful artistic meditations on suffering in the twentieth century. Exhibited alongside Guernica, this painting shows how Picasso continued to process the emotional and political weight of that painting long after it was complete."
+      "tags": [
+        "Picasso",
+        "Guernica studies",
+        "Dora Maar",
+        "grief",
+        "Civil War",
+        "women"
+      ],
+      "audioDescription": "This Weeping Woman is one of a series Picasso painted in the months following the completion of Guernica, as he continued to work through the imagery and emotional charge of that great canvas. The model is Dora Maar—the photographer and artist who was Picasso's companion from 1936 to 1944 and who photographed the entire creation of Guernica in his Paris studio.\n\nDora Maar appears throughout the Guernica studies as the weeping mother—the figure who holds her dead child in the lower left corner of the great painting. In these later independent canvases, Picasso distills that single figure into concentrated portraits of grief that stand as works in their own right.\n\nThe face in this painting is fractured and multi-perspectival in the Cubist tradition: the features are shown simultaneously from different angles, the eyes rendered as sharp angular planes, the mouth open in a cry or sob that seems to rearrange the whole face. Tears are schematized into angular geometric forms that become almost decorative, as if sorrow has been crystallized into a pattern.\n\nPicasso described Dora Maar as 'the weeping woman' and said that he always painted her in tears. Whatever the personal dynamics of their relationship, these works transformed a private grief into one of the most powerful artistic meditations on suffering in the twentieth century. Exhibited alongside Guernica, this painting shows how Picasso continued to process the emotional and political weight of that painting long after it was complete.",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/1/14/Picasso_The_Weeping_Woman_Tate_identifier_T05010_10.jpg"
     }
   ]
 }

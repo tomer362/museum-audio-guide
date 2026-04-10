@@ -1,0 +1,8 @@
+node_modules/
+dist/
+# Assets populated by `npm run setup` from node_modules + HuggingFace.
+# These are served alongside index.html but are not committed to git.
+# Run `npm run setup` to regenerate them after cloning.
+public/transformers/
+public/ort-wasm/
+public/models/
