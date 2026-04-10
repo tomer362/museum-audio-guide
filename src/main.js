@@ -125,8 +125,7 @@ function initApp() {
   document.getElementById('splash').style.display = 'none';
   document.getElementById('app').classList.add('visible');
 
-  // Show "Use AI Voice" button once app is loaded
-  document.getElementById('btn-activate-ai').style.display = '';
+  // Kokoro is loaded automatically on page load; nothing to show here
 }
 
 // ── Floor tabs ─────────────────────────────────────────────────────────────────
@@ -538,11 +537,7 @@ function copyLlmPrompt() {
 // ── Search ─────────────────────────────────────────────────────────────────────
 document.getElementById('search-input').addEventListener('input', renderArtworks);
 
-// ── AI Voice activation button ─────────────────────────────────────────────────
-document.getElementById('btn-activate-ai').addEventListener('click', async () => {
-  document.getElementById('btn-activate-ai').style.display = 'none';
-  await initKokoro();
-});
-
 // ── Init ───────────────────────────────────────────────────────────────────────
 setupSeekBar();
+// Start loading the AI voice immediately in the background on page load
+initKokoro();
