@@ -137,6 +137,7 @@ let wsUtter = null;
 let wsResumeTimer = null;
 let wsDuration = 0;
 let wsStartTime = 0;
+let wsStartFraction = 0;     // word-offset fraction used to align progress
 let wsProgressAtPause = 0;   // saved progress fraction when paused
 
 function speakWebSpeech(text, rate, startFraction) {
