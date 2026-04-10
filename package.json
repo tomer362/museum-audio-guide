@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "setup": "node scripts/download-model.mjs",
     "build": "vite build",
     "postbuild": "cp dist/index.html index.html",
     "dev": "vite"
@@ -10,5 +11,8 @@
   "devDependencies": {
     "vite": "6.4.2",
     "vite-plugin-singlefile": "2.0.2"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "^4.0.1"
   }
 }

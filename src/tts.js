@@ -1,6 +1,14 @@
 // ── TTS Manager ───────────────────────────────────────────────────────────────
 // Tries Kokoro neural TTS (via @huggingface/transformers) first.
 // Falls back to the browser's Web Speech API if Kokoro fails or is unavailable.
+//
+// All assets are served locally — no external CDN or HuggingFace network calls:
+//   transformers.js  →  /transformers/transformers.web.min.js
+//   ONNX WASM        →  /ort-wasm/
+//   Kokoro model     →  /models/onnx-community/Kokoro-82M-v1.0/
+//
+// Run `npm run setup` once to populate public/ with these files, then
+// `npm run build` to produce the single-file index.html artifact.
 
 let kokoroPipeline = null;
 let kokoroLoading = false;
@@ -29,13 +37,18 @@ export let ttsMode = 'webspeech';
 export async function initKokoro() {
   if (kokoroPipeline || kokoroLoading || kokoroFailed) return;
   kokoroLoading = true;
-  notify('⏳ Loading AI voice (first time only)…');
+  notify('⏳ Loading AI voice…');
   try {
-    // Load from CDN so the large library isn't inlined into the single-file HTML build
-    const CDN = 'https://cdn.jsdelivr.net/npm/@huggingface/transformers@4.0.1/dist/transformers.min.js';
-    const { pipeline, env } = await import(/* @vite-ignore */ CDN);
-    // Point ONNX Runtime WASM to the CDN (binary WASM files can't be bundled inline)
-    env.backends.onnx.wasm.wasmPaths = 'https://cdn.jsdelivr.net/npm/onnxruntime-web@1.21.0/dist/';
+    // Load transformers.js from a locally-served file (populated by `npm run setup`).
+    // The /* @vite-ignore */ comment prevents Vite from bundling this import,
+    // which keeps the HTML artifact small and avoids WASM being embedded inline.
+    const LOCAL = './transformers/transformers.web.min.js';
+    const { pipeline, env } = await import(/* @vite-ignore */ LOCAL);
+    // Point ONNX Runtime WASM and model files to local paths (no remote downloads)
+    env.backends.onnx.wasm.wasmPaths = './ort-wasm/';
+    env.localModelPath    = './models/';
+    env.allowLocalModels  = true;
+    env.allowRemoteModels = false;
     kokoroPipeline = await pipeline(
       'text-to-speech',
       'onnx-community/Kokoro-82M-v1.0',
